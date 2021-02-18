@@ -5,11 +5,7 @@ import { SearchComponent } from './search.component';
 export const SEARCH_ROUTES: Routes = [
     {
         path: '',
-        component: SearchComponent,
-        /*children: [
-            {}
-        ]*/
-
+        component: SearchComponent
     }
 ];
 
@@ -18,4 +14,8 @@ export const SEARCH_ROUTES: Routes = [
     exports: [RouterModule],
     providers: [],
   })
-export class SearchRoutingModule {}
+export class SearchRoutingModule {
+    constructor(){
+        console.log('buscarrr');
+    }
+}

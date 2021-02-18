@@ -3,22 +3,24 @@ import { CommonModule } from '@angular/common';
 import { BodyComponent } from './components/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LandingComponent } from './landing.component';
+import { LandingRoutingModule } from './landing.routing';
 
 
 
 @NgModule({
   declarations: [
+    LandingComponent,
     BodyComponent,
     FooterComponent,
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    LandingRoutingModule
   ],
-  exports: [
-    BodyComponent,
-    FooterComponent,
-    HeaderComponent
-  ]
+  bootstrap : [LandingComponent]
 })
-export class LandingModule { }
+export class LandingModule {
+
+ }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BodyComponent } from './landing/components/body/body.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 export const routes: Routes = [
@@ -9,10 +9,6 @@ export const routes: Routes = [
     {
     path: 'renta',
     children: [
-      {
-        path: '',
-        component: BodyComponent,
-      },
       {
         path: 'inicio',
         loadChildren: () =>
@@ -31,7 +27,11 @@ export const routes: Routes = [
       },
       {
         path: 'usuario',
-        loadChildren: () => import('./user/user.module').then(m => m.UserModule)}
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+      },
+      {
+        path: '**', redirectTo: 'inicio', pathMatch: 'full'
+      }
     ],
   },
 ];
