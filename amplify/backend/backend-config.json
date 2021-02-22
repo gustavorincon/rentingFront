@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "rentingauh47d5113c": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
