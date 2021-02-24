@@ -8,16 +8,15 @@ import Amplify, {Auth} from 'aws-amplify';
 import { FormsModule } from '@angular/forms';
 
 
-
 Amplify.configure({  
-    Auth:{  
-      mandatorySignIn:true,  
-      region: 'us-east-1',  
-      userPoolId: 'YOUR_USER_POOL_ID',  
-      userPoolWebClientId: 'YOUR_WEB_CLIENT_ID',  
-      authenticationFlowType:'USER_PASSWORD_AUTH'  
-    }
-  });
+  Auth:{  
+    mandatorySignIn:true,  
+    region: 'us-east-1',  
+    userPoolId: 'userPoolId',  
+    userPoolWebClientId: 'userPoolWebClientId',  
+    authenticationFlowType:'USER_PASSWORD_AUTH'  
+  }
+});
 
 @NgModule({
   declarations: [

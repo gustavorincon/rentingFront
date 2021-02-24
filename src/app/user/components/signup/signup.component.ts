@@ -26,14 +26,12 @@ export class SignupComponent implements OnInit {
           username: this.email,  
           password: this.password,  
           attributes: {  
-            email: this.email,  
-            given_name: this.givenName,  
-            family_name: this.familyName  
+            email: this.email 
           }  
         });  
-        console.log({ user });  
+        console.log('El usuairo es => ',{ user });  
         alert('User signup completed , please check verify your email.');  
-        this.router.navigate(['login']);  
+        this.router.navigate(['/renta/usuario/login']);  
       } catch (error) {  
         console.log('error signing up:', error);  
       }  
