@@ -1,32 +1,35 @@
-<form>
-    <div>
-        <h1>Register with My APP</h1>
-    </div>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="https://www.clipartmax.com/png/small/437-4379862_signup-icon-signup-sign-up-icon.png" id="icon" alt="User Icon" />
+        </div>
 
-    <div>
-        <label for="givenName">First Name</label>
-        <input type="text" name="givenName" [(ngModel)]="givenName" required placeholder="Enter your first name">
-    </div>
+        <form>
 
-    <div>
-        <label for="familyName">Last Name</label>
-        <input type="text" name="familyName" [(ngModel)]="familyName" required placeholder="Enter your last name">
-    </div>
+            <div>
+                <input type="text" name="givenName" [(ngModel)]="givenName" required placeholder="Enter your first name">
+            </div>
 
-    <div>
-        <label for="email">Email address</label>
-        <input type="email" name="email" [(ngModel)]="email" required placeholder="Enter your email">
-    </div>
+            <div>
+                <input type="text" name="familyName" [(ngModel)]="familyName" required placeholder="Enter your last name">
+            </div>
 
-    <div>
-        <label for="password">Password</label>
-        <input type="password" [(ngModel)]="password" name="password" required placeholder="Enter your password">
-    </div>
+            <div>
+                <input type="email" name="email" [(ngModel)]="email" required placeholder="Enter your email">
+            </div>
 
-    <div>
-        <br />
-        <button (click)="register()" class="btn btn-primary btn-block" type="button"> Register </button>
-    </div>
-</form>
+            <div>
+                <input type="password" [(ngModel)]="password" name="password" required placeholder="Enter your password">
+            </div>
 
-<p class="text-dark mb-0">Already a member?<a href="/renta/usuario/login" class="text-primary ml-1">Login</a></p>
+            <div>
+                <br />
+                <button (click)="register()" class="btn btn-info btn-block" type="button"> Register </button>
+            </div>
+        </form>
+        <div id="formFooter">
+            <a class="underlineHover" href="/renta/usuario/login">¿Ya tienes una cuenta?</a>
+        </div>
+    </div>
+</div>

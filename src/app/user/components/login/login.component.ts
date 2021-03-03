@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
 
   async loginWithCognito() {    
+    console.log('entra a login')
         try {    
           var user = await Auth.signIn(this.email.toString(), this.password.toString());    
           console.log('Authentication performed for user=' + this.email + 'password=' + this.password + ' login result==' + user);    
