@@ -1,0 +1,17 @@
+<div class="lib-mb-3" [ngClass]="displayFieldCss()">
+    <div class="lib-d-f lib-f-align-i-center lib-p-relative form-material">
+        <select class="lib-py-2 lib-px-3 lib-w-100 form-material__input" [formControl]="currentFormControl" [id]="id" [ngStyle]="styleSelect">
+      <option value="">{{ defaultOption }}</option>
+      <option *ngFor="let item of items" [ngValue]="item">
+        {{ item.name }}
+      </option>
+    </select>
+        <label class="lib-mx-2 lib-px-2 lib-mb-0 form-material__label" [ngStyle]="styleLabel">
+      {{ label }}
+    </label>
+        <i class="form-material__arrow"></i>
+    </div>
+    <div *ngIf="currentFormControl.errors" class="lib-d-none was-valid">
+        {{ showError(currentFormControl.errors) }}
+    </div>
+</div>

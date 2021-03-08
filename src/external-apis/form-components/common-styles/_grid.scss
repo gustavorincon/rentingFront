@@ -1,0 +1,19 @@
+@import './inheritance';
+
+/* Flexbox */
+
+.lib-d-f {
+    @extend %display-flex;
+}
+
+.lib-f-align-i-center {
+    @extend %flex-align-items-center;
+}
+
+.lib-f-justify-c-center {
+    @extend %flex-justify-content-center;
+}
+
+.lib-f-d-column {
+    @extend %flex-direction-column;
+}

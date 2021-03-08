@@ -1,0 +1,153 @@
+@import './mixins';
+
+/* Sizes */
+
+
+/* 
+  *rem values are relative to the root html (Rem: 16px = 1rem)
+  1: .25rem;
+  2: .5rem;
+  3: 1rem;
+  4: 1.5rem;
+  5: 3rem;
+*/
+
+
+/* Positions */
+
+.lib-p-absolute {
+    position: absolute;
+}
+
+.lib-p-relative {
+    position: relative;
+}
+
+
+/* Displays */
+
+.lib-d-none {
+    display: none;
+}
+
+
+/* Aligns */
+
+.lib-text-center {
+    text-align: center;
+}
+
+
+/* Sizes (width - height) */
+
+.lib-w-100 {
+    width: 100%;
+}
+
+
+/* All */
+
+.lib-pointer-none {
+    pointer-events: none;
+}
+
+
+/* Margins */
+
+// Top
+.lib-mt-0 {
+    @include mt(0);
+}
+
+.lib-mt-2 {
+    @include mt(0.5rem);
+}
+
+// Bottom
+.lib-mb-0 {
+    @include mb(0);
+}
+
+.lib-mb-1 {
+    @include mb(0.25rem);
+}
+
+.lib-mb-2 {
+    @include mb(0.5rem);
+}
+
+.lib-mb-3 {
+    @include mb(1rem);
+}
+
+.lib-mb-4 {
+    @include mb(1.5rem);
+}
+
+// Left
+.lib-ml-0 {
+    @include ml(0);
+}
+
+.lib-ml-1 {
+    @include ml(0.25rem);
+}
+
+// Left-Right
+.lib-mx-2 {
+    @include mx(0.5rem);
+}
+
+
+/* Paddings */
+
+// Bottom
+.lib-pb-1 {
+    @include pb(0.25rem);
+}
+
+.lib-pb-2 {
+    @include pb(0.5rem);
+}
+
+.lib-pb-3 {
+    @include pb(1rem);
+}
+
+.lib-pb-4 {
+    @include pb(1.5rem);
+}
+
+// Top-Bottom
+.lib-py-1 {
+    @include py(0.25rem);
+}
+
+.lib-py-2 {
+    @include py(0.5rem);
+}
+
+.lib-py-3 {
+    @include py(1rem);
+}
+
+// Left-Right
+.lib-px-1 {
+    @include px(0.25rem);
+}
+
+.lib-px-2 {
+    @include px(0.5rem);
+}
+
+.lib-px-3 {
+    @include px(1rem);
+}
+
+.lib-px-4 {
+    @include px(1.5rem);
+}
+
+.lib-px-5 {
+    @include px(3rem);
+}

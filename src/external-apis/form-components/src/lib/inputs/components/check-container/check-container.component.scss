@@ -1,0 +1,23 @@
+$error-color: red;
+
+.check-container {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(235, 235, 235, 1);
+  border-radius: 6px;
+  transition: border 0.2s ease-in-out;
+  &_active,
+  &:hover {
+    border: 1px solid #00aec773;
+    box-shadow: 0 0 5px #00aec7ab;
+  }
+  &_error {
+    border: 1px solid red;
+  }
+  &.check-container_error {
+    &:hover {
+      border: 1px solid red;
+      box-shadow: 0 0 5px red;
+    }
+  }
+}

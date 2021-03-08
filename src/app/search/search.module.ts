@@ -5,6 +5,7 @@ import { SearchRoutingModule } from './search.routing';
 import { GeneralFiltersComponent } from './components/general-filters/general-filters.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { SpecificFiltersComponent } from './components/specific-filters/specific-filters.component';
+import { HeaderSearchComponent } from './components/header-search/header-search.component';
 
 
 
@@ -13,7 +14,8 @@ import { SpecificFiltersComponent } from './components/specific-filters/specific
     SearchComponent,
     GeneralFiltersComponent,
     ProductsListComponent,
-    SpecificFiltersComponent
+    SpecificFiltersComponent,
+    HeaderSearchComponent
   ],
   imports: [
     CommonModule,

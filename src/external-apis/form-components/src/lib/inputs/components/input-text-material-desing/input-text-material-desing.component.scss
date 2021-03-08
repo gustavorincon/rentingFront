@@ -1,0 +1,68 @@
+@import '../../../../../common-styles/index.scss';
+$error-color: red;
+.form-material {
+    &__input {
+        background: #fff;
+        border: 1px solid #d2d2d2;
+        outline: none;
+        color: #727272;
+        font-size: 16px;
+        border-radius: 4px;
+        &:focus,
+        &.form-material__input_is-not-empty {
+            &~.form-material__label {
+                -webkit-transform: translateY(-22px);
+                -ms-transform: translateY(-22px);
+                transform: translateY(-22px);
+                font-size: 0.8rem;
+            }
+        }
+        &.ng-valid {
+            border-color: #d2d2d2;
+            color: #000;
+            &~.form-material__label {
+                color: #00aec7;
+            }
+        }
+        &::-ms-clear {
+            display: none;
+        }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+    &__label {
+        -webkit-transition: all 0.15s ease-in-out;
+        -o-transition: all 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+        font-size: 1rem;
+        position: absolute;
+        pointer-events: none;
+        color: #999999;
+        background: #fff;
+    }
+}
+
+.lib-was-validate {
+    .form-material__input {
+        border-color: $error-color !important;
+    }
+    .form-material__label,
+    .was-valid {
+        color: $error-color !important;
+    }
+    .form-material__icon-state_error {
+        opacity: 1;
+    }
+    .was-valid {
+        display: block;
+    }
+}
+
+.text-capitalize {
+    .form-material__input {
+        text-transform: capitalize;
+    }
+}

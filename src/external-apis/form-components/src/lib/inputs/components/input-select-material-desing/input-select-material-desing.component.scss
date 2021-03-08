@@ -1,0 +1,76 @@
+@import '../../../../../common-styles/index.scss';
+$error-color: red;
+@mixin translate-label {
+    -webkit-transform: translateY(-22px);
+    -ms-transform: translateY(-22px);
+    transform: translateY(-22px);
+    font-size: 14px;
+}
+
+.form-material {
+    position: relative;
+    &__input {
+        position: relative;
+        border: 1px solid #d2d2d2;
+        border-radius: 4px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        color: #000;
+        background: #fff;
+        &:focus {
+            &~.form-material__label {
+                @include translate-label;
+            }
+        }
+    }
+    &__arrow {
+        position: absolute;
+        right: 15px;
+        pointer-events: none;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid rgba(153, 153, 153, 1);
+    }
+    .ng-valid {
+        &.form-material__input {
+            border-color: #d2d2d2;
+        }
+        &~.form-material__label {
+            @include translate-label;
+            color: #00aec7;
+        }
+    }
+    &__label {
+        position: absolute;
+        pointer-events: none;
+        color: #999999;
+        background: #fff;
+        transition: all 0.15s ease-in-out;
+    }
+}
+
+.lib-was-validate {
+    .form-material__input {
+        border-color: $error-color !important;
+        text-indent: -99999px;
+    }
+    .form-material__label,
+    .was-valid {
+        color: $error-color !important;
+    }
+    .form-material__icon-state_error {
+        opacity: 1;
+    }
+    .was-valid {
+        display: block;
+    }
+}
+
+.text-capitalize {
+    .form-material__input {
+        text-transform: capitalize;
+    }
+}

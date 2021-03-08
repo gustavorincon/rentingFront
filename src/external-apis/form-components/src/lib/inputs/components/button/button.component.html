@@ -1,0 +1,3 @@
+<button [type]="buttonType" class="lib-px-5 lib-py-1 lib-button" [ngClass]="[getClassName(variant), getClassName(variant, hover)]" [ngStyle]="styles" [disabled]="disabled" (click)="handleClick()" [routerLink]="selfLink">
+  <ng-content></ng-content>
+</button>
