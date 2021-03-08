@@ -1,0 +1,35 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="https://www.clipartmax.com/png/small/437-4379862_signup-icon-signup-sign-up-icon.png" id="icon" alt="User Icon" />
+        </div>
+
+        <form>
+
+            <div>
+                <input type="text" name="givenName" [(ngModel)]="givenName" required placeholder="Enter your first name">
+            </div>
+
+            <div>
+                <input type="text" name="familyName" [(ngModel)]="familyName" required placeholder="Enter your last name">
+            </div>
+
+            <div>
+                <input type="email" name="email" [(ngModel)]="email" required placeholder="Enter your email">
+            </div>
+
+            <div>
+                <input type="password" [(ngModel)]="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <div>
+                <br />
+                <button (click)="register()" class="btn btn-info btn-block" type="button"> Register </button>
+            </div>
+        </form>
+        <div id="formFooter">
+            <a class="underlineHover" href="/renta/usuario/login">¿Ya tienes una cuenta?</a>
+        </div>
+    </div>
+</div>
