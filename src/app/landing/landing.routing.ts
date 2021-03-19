@@ -15,9 +15,4 @@ export const LANDING_ROUTES: Routes = [
     exports: [RouterModule],
     providers: [],
   })
-export class LandingRoutingModule {
-
-    constructor() {
-        console.log('hellooo');
-    }
-}
+export class LandingRoutingModule {}
