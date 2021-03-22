@@ -11,6 +11,7 @@ import { Auth } from 'aws-amplify';
 export class PasswordResetComponent implements OnInit {
   email: String = ''
   verificationCode: String = ''
+  codeSent:boolean = false 
   newPwd: String = ''
   newPwd2: String = ''
 
@@ -24,9 +25,11 @@ export class PasswordResetComponent implements OnInit {
     console.log('recoverAccount => ',this.email.toString())
         try {    
           var user = await Auth.forgotPassword(this.email.toString());    
-          console.log('Password reset = ' + this.email);    
+          console.log('Password reset = ' + this.email);  
+          this.codeSent = true  
           alert('Hemos enviado las instrucciones para cambiar tu contrasenia');
         } catch (error) {
+          this.codeSent = false
           console.log(error);    
           alert('Error recuperando la cuenta');
         }
