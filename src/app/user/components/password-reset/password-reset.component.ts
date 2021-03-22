@@ -6,12 +6,13 @@ import { Auth } from 'aws-amplify';
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.css']
+  styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class PasswordResetComponent implements OnInit {
   email: String = ''
-  pwd: String = ''
-  pwd2: String = ''
+  verificationCode: String = ''
+  newPwd: String = ''
+  newPwd2: String = ''
 
   constructor(private router: Router) { }
 
@@ -20,7 +21,7 @@ export class PasswordResetComponent implements OnInit {
 
   
   async recoverAccount() {    
-    console.log('entra a login')
+    console.log('recoverAccount => ',this.email.toString())
         try {    
           var user = await Auth.forgotPassword(this.email.toString());    
           console.log('Password reset = ' + this.email);    
@@ -34,10 +35,14 @@ export class PasswordResetComponent implements OnInit {
 
     async changePwd() {    
       console.log('entra a login')
-          try {    
-            var user = await Auth.changePassword(this.email.toString(), this.pwd.toString(), this.pwd2.toString());    
-            console.log('Authentication performed for user=' + this.email + 'password=' + this.pwd + ' login result==' + user);    
-            alert('Cambio exitoso !');    
+          try {   
+            if( this.newPwd !=  this.newPwd2){
+              throw new Error('deben ser iguales')
+            } 
+            console.log('Authentication performed for user=' + this.email + 'code=' + this.verificationCode + ' newPwd==' + this.newPwd);    
+            var user = await Auth.forgotPasswordSubmit(this.email.toString(), this.verificationCode.toString(), this.newPwd.toString());                
+            alert('Contraseña se ha cambiad exitosamente');  
+            this.router.navigate(['/renta/usuario/login']);     
           } catch (error) {
             console.log(error);    
             alert('Error cambiando el password');
