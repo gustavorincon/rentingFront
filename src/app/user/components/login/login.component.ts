@@ -6,7 +6,7 @@ import { Console } from 'console';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class LoginComponent implements OnInit {
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
           var tokens = user.signInUserSession;    
           if (tokens != null) {    
             console.log('User authenticated'); 
-            this.router.navigate(['home']);    
+            this.router.navigate(['rent/user/home']);    
             alert('You are logged in successfully !');  
           }    
         } catch (error) {
@@ -35,5 +35,4 @@ export class LoginComponent implements OnInit {
           alert('User Authentication failed');
         }
       }
-
 }

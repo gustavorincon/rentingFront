@@ -5,7 +5,7 @@ import { Auth } from 'aws-amplify';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class SignupComponent implements OnInit {
   
