@@ -6,15 +6,11 @@ import { HomeComponent } from './components/home/home.component';
 import { UserRoutingModule } from './user.routing';
 import Amplify, {Auth} from 'aws-amplify';
 import { FormsModule } from '@angular/forms';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 
 
 Amplify.configure({  
-  Auth:{  
-    mandatorySignIn:true,  
-    region: 'us-east-1',  
-    userPoolId: 'userPoolId',  
-    userPoolWebClientId: 'userPoolWebClientId',  
-    authenticationFlowType:'USER_PASSWORD_AUTH'  
+  Auth:{   
   }
 });
 
@@ -23,7 +19,8 @@ Amplify.configure({
     HomeComponent,
     LoginComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PasswordResetComponent
   ],
   imports: [
     CommonModule,
