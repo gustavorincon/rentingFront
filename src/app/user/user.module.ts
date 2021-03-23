@@ -7,10 +7,11 @@ import { UserRoutingModule } from './user.routing';
 import Amplify, {Auth} from 'aws-amplify';
 import { FormsModule } from '@angular/forms';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { RentingSharedModule } from '../shared/shared.module';
 
 
 Amplify.configure({  
-  Auth:{   
+  Auth:{  
   }
 });
 
@@ -23,6 +24,7 @@ Amplify.configure({
     PasswordResetComponent
   ],
   imports: [
+    RentingSharedModule,
     CommonModule,
     UserRoutingModule,
     FormsModule

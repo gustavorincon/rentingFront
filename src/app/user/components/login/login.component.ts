@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../shared/models/user.model';
+import { IUser, User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -11,32 +12,30 @@ import { User } from '../../shared/models/user.model';
 export class LoginComponent implements OnInit {
 
 
-  user: User
+  logginForm = this.fb.group({
+    email: [null, [Validators.required]],
+    password: [null, [Validators.required]],
+  });
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,  
+    private fb: FormBuilder,
+    private router: Router) { 
+
+    }
+
   ngOnInit(): void {
 
   }
 
-  /*async login() {    
-    console.log('entra a login')
-        try {    
-          var user = await Auth.signIn(this.email.toString(), this.password.toString());    
-          console.log('Authentication performed for user=' + this.email + 'password=' + this.password + ' login result==' + user);    
-          var tokens = user.signInUserSession;    
-          if (tokens != null) {    
-            console.log('User authenticated'); 
-            this.router.navigate(['renta/usuario/home']);    
-            alert('You are logged in successfully !');  
-          }    
-        } catch (error) {
-          console.log(error);    
-          alert('User Authentication failed');
-        }
-      }*/
-
-      async login(){
-        console.log('en login ',this.user)
-        this.authService.login(this.user)
-      }
+  private getUserForm(): IUser{
+    return new User(
+    '',
+    '',
+    this.logginForm.get(['email']).value,
+    this.logginForm.get(['password']).value);
+  }
+  
+  async login(){
+    this.authService.login(this.getUserForm())
+  }
 }

@@ -4,13 +4,13 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="http://1000springs.org.nz/static/img/icons/login.png" id="icon" alt="User Icon" />
+            <label for="">::.Ingreso.::</label>
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="email" id="login" class="fadeIn second" name="email" [(ngModel)]="user.email" placeholder="Ingrese su email">
-            <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="user.password" placeholder="Ingrese su contraseña">
+        <form name="logginForm" [formGroup]="logginForm">
+            <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Ingrese su email">
+            <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña">
             <input type="submit" (click)="login()" class="fadeIn fourth" value="Ingresar">
         </form>
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
-import { ResetUserPwdRequestDto } from '../shared/dtos/resetUserPasswordRequest';
+import Amplify, {Auth} from 'aws-amplify';
+import { IResetUserPwdRequestDto, ResetUserPwdRequestDto } from '../shared/dtos/resetUserPasswordRequest';
 import { User } from '../shared/models/user.model';
 
 @Injectable({
@@ -9,9 +9,23 @@ import { User } from '../shared/models/user.model';
 })
 export class AuthService {
 
-  userProfile : any
+  userProfile : any  
 
   constructor(private router: Router) { }
+
+  async isLogged(): Promise<boolean> { 
+    try { 
+      var userSession =  await Auth.currentSession()
+      console.log('isLogged => ', userSession)
+      return (userSession != null)
+    } catch (error) {
+      console.log(error);    
+      return new Promise((resolve, reject) => {
+        let data:boolean = false;
+        resolve(data);
+    });
+    }
+   }
 
 
   // Function para logueo con cognito
@@ -33,7 +47,7 @@ export class AuthService {
       }
 
 
-  register(user: User){  
+  signUp(user: User){  
     try {  
       const cognitoUser = Auth.signUp({  
         username: user.email,  
@@ -50,22 +64,22 @@ export class AuthService {
     }  
   }
 
-  async recoverAccount(recoverRequest:ResetUserPwdRequestDto) {    
+  async recoverAccount(recoverRequest:IResetUserPwdRequestDto): Promise<boolean> {    
     console.log('recoverAccount => ',recoverRequest.email.toString())
         try {    
           var user = await Auth.forgotPassword(recoverRequest.email.toString());    
           console.log('Password reset = ' + recoverRequest.email);  
-          recoverRequest.codeSent = true  
           alert('Hemos enviado las instrucciones para cambiar tu contrasenia');
+          return true
         } catch (error) {
-          recoverRequest.codeSent = false
           console.log(error);    
           alert('Error recuperando la cuenta');
+          return false
         }
       }
 
 
-    async changePwd(recoverRequest:ResetUserPwdRequestDto) {    
+    async changePwd(recoverRequest:IResetUserPwdRequestDto) {    
       console.log('entra a login')
           try {   
             if( recoverRequest.newPwd !=  recoverRequest.newPwd2){

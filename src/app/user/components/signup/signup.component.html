@@ -2,16 +2,16 @@
     <div id="formContent">
         <!-- Icon -->
         <div class="fadeIn first">
-            <img src="https://www.clipartmax.com/png/small/437-4379862_signup-icon-signup-sign-up-icon.png" id="icon" alt="User Icon" />
+            <label for="">::.Registro.::</label>
         </div>
 
-        <form>
+        <form name="signupForm" [formGroup]="signupForm">
             <div>
-                <input type="email" name="email" [(ngModel)]="user.email" required placeholder="Enter your email">
+                <input type="email" formControlName="email" name="email" required placeholder="Enter your email">
             </div>
 
             <div>
-                <input type="password" [(ngModel)]="user.password" name="password" required placeholder="Enter your password">
+                <input type="password" formControlName="password" name="password" required placeholder="Enter your password">
             </div>
 
             <div>

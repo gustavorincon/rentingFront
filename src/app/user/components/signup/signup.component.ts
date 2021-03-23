@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Auth } from 'aws-amplify';
-import { User } from '../../shared/models/user.model';
+import { AuthService } from '../../services/auth.service';
+import { IUser, User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -9,28 +10,33 @@ import { User } from '../../shared/models/user.model';
   styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class SignupComponent implements OnInit {
+
+  
+  signupForm = this.fb.group({
+    email: [null, [Validators.required]],
+    password: [null, [Validators.required]],
+  });
   
     user:User 
   
-    constructor(private router:Router) { }  
+    constructor(private authService: AuthService,  
+      private fb: FormBuilder,
+      private router: Router) { }  
   
     ngOnInit(): void {
   
-    }  
-  
-    register(){  
-      try {  
-        const user = Auth.signUp({  
-          username: this.user.email,  
-          password: this.user.password,  
-          attributes: {  
-            email: this.user.email 
-          }  
-        });  
-        alert('User signup completed , please check verify your email.');  
-        this.router.navigate(['/renta/usuario/login']);  
-      } catch (error) {  
-        console.log('error signing up:', error);  
-      }  
+    } 
+    
+    private getUserForm(): IUser{
+      return new User(
+      '',
+      '',
+      this.signupForm.get(['email']).value,
+      this.signupForm.get(['password']).value);
+    }
+
+
+    async register(){
+      this.authService.signUp(this.getUserForm())
     }
 }
