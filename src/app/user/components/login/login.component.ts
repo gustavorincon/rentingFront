@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Auth } from 'aws-amplify';
-import { Console } from 'console';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +10,15 @@ import { Console } from 'console';
 })
 export class LoginComponent implements OnInit {
 
-  email: string = '';  
-  password: string = '';
 
-  constructor(private router: Router) { }
+  user: User
+
+  constructor(private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
 
   }
 
-
-  async loginWithCognito() {    
+  /*async login() {    
     console.log('entra a login')
         try {    
           var user = await Auth.signIn(this.email.toString(), this.password.toString());    
@@ -34,5 +33,10 @@ export class LoginComponent implements OnInit {
           console.log(error);    
           alert('User Authentication failed');
         }
+      }*/
+
+      async login(){
+        console.log('en login ',this.user)
+        this.authService.login(this.user)
       }
 }

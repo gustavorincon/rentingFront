@@ -5,9 +5,10 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { AuthGuard } from './services/auth.guard';
 export const USER_ROUTES: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'login' },
-    {path: 'home', component: HomeComponent},
+    {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'reset-password', component: PasswordResetComponent },

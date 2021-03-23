@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
+import { User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -9,10 +10,7 @@ import { Auth } from 'aws-amplify';
 })
 export class SignupComponent implements OnInit {
   
-    email:string;  
-    password:string;  
-    givenName:string;  
-    familyName:string;
+    user:User 
   
     constructor(private router:Router) { }  
   
@@ -23,13 +21,12 @@ export class SignupComponent implements OnInit {
     register(){  
       try {  
         const user = Auth.signUp({  
-          username: this.email,  
-          password: this.password,  
+          username: this.user.email,  
+          password: this.user.password,  
           attributes: {  
-            email: this.email 
+            email: this.user.email 
           }  
         });  
-        console.log('El usuairo es => ',{ user });  
         alert('User signup completed , please check verify your email.');  
         this.router.navigate(['/renta/usuario/login']);  
       } catch (error) {  

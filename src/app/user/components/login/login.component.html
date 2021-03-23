@@ -9,9 +9,9 @@
 
         <!-- Login Form -->
         <form>
-            <input type="email" id="login" class="fadeIn second" name="email" [(ngModel)]="email" placeholder="Ingrese su email">
-            <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="password" placeholder="Ingrese su contraseña">
-            <input type="submit" (click)="loginWithCognito()" class="fadeIn fourth" value="Ingresar">
+            <input type="email" id="login" class="fadeIn second" name="email" [(ngModel)]="user.email" placeholder="Ingrese su email">
+            <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="user.password" placeholder="Ingrese su contraseña">
+            <input type="submit" (click)="login()" class="fadeIn fourth" value="Ingresar">
         </form>
 
         <!-- Remind Passowrd -->
