@@ -37,7 +37,7 @@ export class AuthService {
           var tokens = cognitoUser.signInUserSession;    
           if (tokens != null) {    
             console.log('User authenticated'); 
-            this.router.navigate(['renta/usuario/home']);    
+            this.router.navigate(['renta/usuario/client-info']);    
           }    
         } catch (error) {
           console.log(error);    
