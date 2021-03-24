@@ -38,13 +38,16 @@ export class AuthService {
           if (tokens != null) {    
             console.log('User authenticated'); 
             this.router.navigate(['renta/usuario/home']);    
-            alert('You are logged in successfully !');  
           }    
         } catch (error) {
           console.log(error);    
-          alert('User Authentication failed');
         }
       }
+
+
+  async logout() {      
+      Auth.signOut()    
+  }
 
 
   signUp(user: User){  
@@ -57,7 +60,6 @@ export class AuthService {
         }  
       });  
       console.log('El usuairo es => ',{ cognitoUser });  
-      alert('User signup completed , please check verify your email.');  
       this.router.navigate(['/renta/usuario/login']);  
     } catch (error) {  
       console.log('error signing up:', error);  
@@ -69,11 +71,9 @@ export class AuthService {
         try {    
           var user = await Auth.forgotPassword(recoverRequest.email.toString());    
           console.log('Password reset = ' + recoverRequest.email);  
-          alert('Hemos enviado las instrucciones para cambiar tu contrasenia');
           return true
         } catch (error) {
           console.log(error);    
-          alert('Error recuperando la cuenta');
           return false
         }
       }
@@ -87,11 +87,9 @@ export class AuthService {
             } 
             console.log('Authentication performed for user=' + recoverRequest.email + 'code=' + recoverRequest.verificationCode + ' newPwd==' + recoverRequest.newPwd);    
             var user = await Auth.forgotPasswordSubmit(recoverRequest.email.toString(), recoverRequest.verificationCode.toString(), recoverRequest.newPwd.toString());                
-            alert('Contraseña se ha cambiad exitosamente');  
             this.router.navigate(['/renta/usuario/login']);     
           } catch (error) {
             console.log(error);    
-            alert('Error cambiando el password');
           }
         }
 
