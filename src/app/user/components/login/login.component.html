@@ -1,17 +1,14 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <!-- Tabs Titles -->
-
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <label for="">::.Ingreso.::</label>
+        <div class="sign-in-out-title">
+            <h2>Iniciar Sesión</h2>
         </div>
 
         <!-- Login Form -->
         <form name="logginForm" [formGroup]="logginForm">
             <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Ingrese su email">
             <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña">
-            <input type="submit" (click)="login()" class="fadeIn fourth" value="Ingresar">
+            <button (click)="login()" class="btn btn-info button " type="button"> Ingresar </button>
         </form>
 
         <!-- Remind Passowrd -->

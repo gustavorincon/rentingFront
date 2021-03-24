@@ -85,7 +85,7 @@ export class AuthService {
             if( recoverRequest.newPwd !=  recoverRequest.newPwd2){
               throw new Error('deben ser iguales')
             } 
-            console.log('Authentication performed for user=' + recoverRequest.email + 'code=' + recoverRequest.verificationCode + ' newPwd==' + recoverRequest.newPwd);    
+            console.log('Authentication performed for user= ' + recoverRequest.email + ' code=' + recoverRequest.verificationCode + ' newPwd==' + recoverRequest.newPwd);    
             var user = await Auth.forgotPasswordSubmit(recoverRequest.email.toString(), recoverRequest.verificationCode.toString(), recoverRequest.newPwd.toString());                
             this.router.navigate(['/renta/usuario/login']);     
           } catch (error) {

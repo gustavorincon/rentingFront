@@ -16,7 +16,9 @@ export class PasswordResetComponent implements OnInit {
 
   recoverForm = this.fb.group({
     email: [null, [Validators.required]],
-    password: [null, [Validators.required]],
+    verificationCode: [null, [Validators.required]],
+    newPwd: [null, [Validators.required]],
+    newPwd2: [null, [Validators.required]],
   });
 
 
@@ -34,9 +36,9 @@ export class PasswordResetComponent implements OnInit {
   private getRequestForm(): IResetUserPwdRequestDto{
     return new ResetUserPwdRequestDto(
     this.recoverForm.get(['email']).value,
-    this.recoverForm.get(['verificationCode']).value,
-    this.recoverForm.get(['newPwd']).value,
-    this.recoverForm.get(['newPwd2']).value);
+    this.recoverForm.get(['verificationCode'])?.value,
+    this.recoverForm.get(['newPwd'])?.value,
+    this.recoverForm.get(['newPwd2'])?.value);
   }
 
   async recoverAccount() {    
@@ -44,7 +46,7 @@ export class PasswordResetComponent implements OnInit {
   }
 
   async changePwd() {   
-    this.authService.changePwd 
+    this.authService.changePwd(this.getRequestForm())
   }
 
 }

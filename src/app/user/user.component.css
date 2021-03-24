@@ -4,6 +4,11 @@ html {
     background-color: #56baed;
 }
 
+.sign-in-out-title {
+    padding: 30px 0px 30px 0px;
+    font-size: 15px;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
@@ -18,12 +23,12 @@ a {
 
 h2 {
     text-align: center;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 900;
     text-transform: uppercase;
     display: inline-block;
     margin: 40px 8px 10px 8px;
-    color: #cccccc;
+    color: #fffefe;
 }
 
 
@@ -37,19 +42,25 @@ h2 {
     width: 100%;
     min-height: 100%;
     padding: 20px;
+    background-image: url("https://cdn.cnn.com/cnnnext/dam/assets/201231114619-01-oz-ourdomain-student-housing-full-169.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
-    padding: 30px;
-    width: 90%;
+    background: rgb(199, 218, 219);
+    opacity: 0.96;
+    padding: 10px;
+    width: 45%;
+    height: 100%;
     max-width: 450px;
     position: relative;
     padding: 0px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 40px 70px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
@@ -80,7 +91,7 @@ h2.active {
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    background-color: #56baed;
+    background-color: #2b8eeb;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -104,7 +115,7 @@ input[type=reset] {
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover {
-    background-color: #39ace7;
+    background-color: #f59660;
 }
 
 input[type=button]:active,
@@ -266,7 +277,7 @@ input[type=text]:placeholder {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: #f59660;
     content: "";
     transition: width 0.2s;
 }
