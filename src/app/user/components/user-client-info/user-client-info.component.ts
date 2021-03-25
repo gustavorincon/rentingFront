@@ -14,17 +14,36 @@ export class UserClientInfoComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
+  /*
+    idType
+    idNumber
+    firstName
+    secondName
+
+    firstLastName
+    secondLastName
+    email
+    phoneNumber
+    address
+    city
+    gender
+    birthDate
+  */
+
   ngOnInit() {
-      this.registerForm = this.formBuilder.group({
-          title: ['', Validators.required],
-          firstName: ['', Validators.required],
-          lastName: ['', Validators.required],
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6)]],
-          confirmPassword: ['', Validators.required],
-          acceptTerms: [false, Validators.requiredTrue]
-      }, {
-          validator: MustMatch('password', 'confirmPassword')
+    this.registerForm = this.formBuilder.group({
+        idType: ['', Validators.required],
+        idNumber: ['', Validators.required],
+        firstName: ['', Validators.required],
+        secondName: [''],
+        firstLastName: ['', Validators.required],
+        secondLastName: [''],
+        email: ['', [Validators.required, Validators.email]],
+        phoneNumber: ['', [Validators.required]],
+        address: ['', [Validators.required]],
+        city: ['', Validators.required],
+        gender: ['', Validators.requiredTrue],
+        acceptTerms: [false, Validators.requiredTrue]
       });
   }
 
@@ -33,13 +52,9 @@ export class UserClientInfoComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-
-      // stop here if form is invalid
       if (this.registerForm.invalid) {
           return;
       }
-
-      // display form values on success
       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 
