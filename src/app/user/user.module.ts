@@ -5,10 +5,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserRoutingModule } from './user.routing';
 import Amplify, {Auth} from 'aws-amplify';
-import { FormsModule } from '@angular/forms';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { RentingSharedModule } from '../shared/shared.module';
 import { UserClientInfoComponent } from './components/user-client-info/user-client-info.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 
 Amplify.configure({  
@@ -26,6 +27,8 @@ Amplify.configure({
     UserClientInfoComponent
   ],
   imports: [
+    BrowserModule,
+    HttpClientModule,
     RentingSharedModule,
     CommonModule,
     UserRoutingModule
