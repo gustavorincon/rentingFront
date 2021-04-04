@@ -10,7 +10,7 @@ export interface IClient{
     address:string; 
     city:string; 
     gender:string; 
-    birthDate:string; 
+    dniIssuedDate:string; 
 }
 
 
@@ -27,6 +27,6 @@ export class Client implements IClient{
         public address:string,
         public city:string,
         public gender:string, 
-        public birthDate:string, 
+        public dniIssuedDate:string, 
     ){}
 }

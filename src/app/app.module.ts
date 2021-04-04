@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const commonComponents = [AppComponent];
@@ -12,7 +13,8 @@ const commonModules = [];
   declarations: [...commonComponents],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
+    AppRoutingModule,    
+    HttpClientModule,
     NgbModule,
     ...commonModules,
   ],

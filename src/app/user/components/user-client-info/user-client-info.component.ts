@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
 import { ClientManagerService } from '../../services/client-manager/client-manager.service';
 import { Client, IClient } from '../../shared/models/client.model';
@@ -30,7 +32,8 @@ export class UserClientInfoComponent implements OnInit {
         phoneNumber: ['', [Validators.required]],
         address: ['', [Validators.required]],
         city: ['', Validators.required],
-        gender: ['', Validators.requiredTrue],
+        gender: ['', Validators.required],
+        dniIssuedDate: ['', Validators.required],
         acceptTerms: [false, Validators.requiredTrue]
       });
   }
@@ -52,7 +55,7 @@ export class UserClientInfoComponent implements OnInit {
     this.registerForm.get(['address']).value,
     this.registerForm.get(['city']).value,
     this.registerForm.get(['gender']).value,
-    this.registerForm.get(['birthDate']).value);
+    this.registerForm.get(['dniIssuedDate']).value);
   }
   
  
@@ -61,8 +64,23 @@ export class UserClientInfoComponent implements OnInit {
       if (this.registerForm.invalid) {
           return;
       }
-      this.clientManagerService.create(this.getClientModelForm())
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+      try {
+        this.clientManagerService.create(this.getClientModelForm()).subscribe()
+        //this.router.navigate(['renta/usuario/home']);   
+      } catch (error) {
+        console.log("Error registrando cliente => ",error)
+      }
+     
+  }
+
+
+  validateExists(dni: string): Observable<boolean>{
+    try {
+      return this.clientManagerService.get(dni).pipe(map(rest => rest.firstName.length>0))
+    } catch (error) {
+      console.log("Error validando existencia  cliente => ",error)
+    }
+    
   }
 
   onReset() {

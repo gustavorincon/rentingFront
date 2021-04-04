@@ -8,8 +8,6 @@ import Amplify, {Auth} from 'aws-amplify';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { RentingSharedModule } from '../shared/shared.module';
 import { UserClientInfoComponent } from './components/user-client-info/user-client-info.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
 
 
 Amplify.configure({  
@@ -27,8 +25,6 @@ Amplify.configure({
     UserClientInfoComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
     RentingSharedModule,
     CommonModule,
     UserRoutingModule
