@@ -1,0 +1,7 @@
+{
+    "/qa/clients": {
+        "target": "https://23j9ok8564.execute-api.us-east-1.amazonaws.com",
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

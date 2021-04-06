@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
@@ -15,6 +16,7 @@ import { Client, IClient } from '../../shared/models/client.model';
 export class UserClientInfoComponent implements OnInit {
 
   registerForm: FormGroup;
+  model: NgbDateStruct;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder,

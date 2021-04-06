@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientManagerService {
-  private urlBase = 'https://23j9ok8564.execute-api.us-east-1.amazonaws.com/qa/clients'
+  private urlBase = '/qa/clients'
 
   //https://23j9ok8564.execute-api.us-east-1.amazonaws.com/qa/clients/C1116237362'
 

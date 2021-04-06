@@ -6,9 +6,13 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>Tipo de documento</label>
-                    <input type="text" formControlName="idType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idType.errors }" />
+                    <select formControlName="idType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idType.errors }">
+                        <option value=""></option>
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="CE">Cédula de Extranjeria </option>
+                    </select>
                     <div *ngIf="submitted && f.idType.errors" class="invalid-feedback">
-                        <div *ngIf="f.idType.errors.required">Tipo de documento es requerido</div>
+                        <div *ngIf="f.idType.errors.required">Tipo documento es requerido</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -90,17 +94,28 @@
             <div class="form-row">
                 <div class="form-group col-6">
                     <label>Género</label>
-                    <input type="text" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
+                    <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                        <option value=""></option>
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                    </select>
                     <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
                         <div *ngIf="f.gender.errors.required">Género es requerido</div>
                     </div>
                 </div>
                 <div class="form-group col-6">
                     <label>Fecha de Expedición Documento</label>
-                    <input type="text" formControlName="dniIssuedDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dniIssuedDate.errors }" />
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dniIssuedDate" formControlName="dniIssuedDate" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                        </div>
+                    </div>
                     <div *ngIf="submitted && f.dniIssuedDate.errors" class="invalid-feedback">
                         <div *ngIf="f.dniIssuedDate.errors.required">Fecha de nacimiento es requerido</div>
                     </div>
+
+
                 </div>
             </div>
 

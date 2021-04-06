@@ -8,6 +8,7 @@ import Amplify, {Auth} from 'aws-amplify';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { RentingSharedModule } from '../shared/shared.module';
 import { UserClientInfoComponent } from './components/user-client-info/user-client-info.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 Amplify.configure({  
@@ -27,7 +28,8 @@ Amplify.configure({
   imports: [
     RentingSharedModule,
     CommonModule,
-    UserRoutingModule
-  ]
+    UserRoutingModule,
+    NgbModule
+  ],
 })
 export class UserModule { }
