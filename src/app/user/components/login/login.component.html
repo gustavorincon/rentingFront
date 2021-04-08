@@ -1,22 +1,23 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <!-- Tabs Titles -->
-
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="http://1000springs.org.nz/static/img/icons/login.png" id="icon" alt="User Icon" />
+        <div class="sign-in-out-title">
+            <h2>Iniciar Sesión</h2>
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="email" id="login" class="fadeIn second" name="email" [(ngModel)]="email" placeholder="Ingrese su email">
-            <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="password" placeholder="Ingrese su contraseña">
-            <input type="submit" (click)="loginWithCognito()" class="fadeIn fourth" value="Ingresar">
+        <form name="logginForm" [formGroup]="logginForm">
+            <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Ingrese su email">
+            <div *ngIf="f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Campo requerido</div>
+                <div *ngIf="f.email.errors.email">Por favor ingrese un correo valido</div>
+            </div>
+            <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña">
+            <button (click)="login()" class="btn btn-info button " type="button"> Ingresar </button>
         </form>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="#">¿Olvidaste tu contraseña?</a>
+            <a class="underlineHover" href="/renta/usuario/reset-password">¿Olvidaste tu contraseña?</a>
         </div>
 
         <!-- Remind Passowrd -->

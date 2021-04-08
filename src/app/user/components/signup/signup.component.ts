@@ -1,39 +1,45 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Auth } from 'aws-amplify';
+import { AuthService } from '../../services/auth.service';
+import { IUser, User } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class SignupComponent implements OnInit {
+
   
-    email:string;  
-    password:string;  
-    givenName:string;  
-    familyName:string;
+  signupForm = this.fb.group({
+    email: [null, [Validators.required,Validators.email]],
+    password: [null, [Validators.required,Validators.minLength(6)]],
+  });
   
-    constructor(private router:Router) { }  
+    user:User 
+  
+    constructor(private authService: AuthService,  
+      private fb: FormBuilder,
+      private router: Router) { }  
   
     ngOnInit(): void {
   
-    }  
-  
-    register(){  
-      try {  
-        const user = Auth.signUp({  
-          username: this.email,  
-          password: this.password,  
-          attributes: {  
-            email: this.email 
-          }  
-        });  
-        console.log('El usuairo es => ',{ user });  
-        alert('User signup completed , please check verify your email.');  
-        this.router.navigate(['/renta/usuario/login']);  
-      } catch (error) {  
-        console.log('error signing up:', error);  
-      }  
+    } 
+
+      // convenience getter for easy access to form fields
+   get f() { return this.signupForm.controls; }
+    
+    private getUserForm(): IUser{
+      return new User(
+      '',
+      '',
+      this.signupForm.get(['email']).value,
+      this.signupForm.get(['password']).value);
+    }
+
+
+    async register(){
+      this.authService.signUp(this.getUserForm())
     }
 }

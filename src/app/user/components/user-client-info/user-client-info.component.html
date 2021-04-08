@@ -1,0 +1,137 @@
+<!-- main app container -->
+<div class="card m-3">
+    <h4 class="card-header"> Hola! <small>(Esta información es vital para poder gestionar tus inmuebles).</small></h4>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Tipo de documento</label>
+                    <select formControlName="idType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idType.errors }">
+                        <option value=""></option>
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="CE">Cédula de Extranjeria </option>
+                    </select>
+                    <div *ngIf="submitted && f.idType.errors" class="invalid-feedback">
+                        <div *ngIf="f.idType.errors.required">Tipo documento es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Número de documento</label>
+                    <input type="text" min="0" formControlName="idNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idNumber.errors }" />
+                    <div *ngIf="submitted && f.idNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.idNumber.errors.required">Número documento es requerido</div>
+                        <div *ngIf="f.idNumber.errors.minlength">Debe ser un documento correcto</div>
+                        <div *ngIf="f.idNumber.errors.maxlength">debe ingresar solo 15 carácteres</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Primer nombre</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">Primer nombre es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Segundo nombre</label>
+                    <input type="text" formControlName="secondName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.secondName.errors }" />
+                    <div *ngIf="submitted && f.secondName.errors" class="invalid-feedback">
+                        <div *ngIf="f.secondName.errors.required">Segundo nombre es requerido</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Primer apellido</label>
+                    <input type="text" formControlName="firstLastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstLastName.errors }" />
+                    <div *ngIf="submitted && f.firstLastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstLastName.errors.required">Primer apellido es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Segundo apellido</label>
+                    <input type="text" formControlName="secondLastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.secondLastName.errors }" />
+                    <div *ngIf="submitted && f.secondLastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.secondLastName.errors.required">Segundo apellido es requerido</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Correo</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Correo es requerido</div>
+                        <div *ngIf="f.email.errors.email">Por favor digita un correo válido</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Teléfono</label>
+                    <input type="text" min="0" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNumber.errors.required">Teléfono es requerido</div>
+                        <div *ngIf="f.phoneNumber.errors.minlength">debe ser un número válido</div>
+                        <div *ngIf="f.phoneNumber.errors.maxlength">debe ser un número válido</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Dirección</label>
+                    <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                    <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required">Dirección es requerido</div>
+                        <div *ngIf="f.address.errors.email">Por favor digita una dirección</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Ciudad</label>
+                    <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required">ciudad es requerido</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label>Género</label>
+                    <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                        <option value=""></option>
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                    <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                        <div *ngIf="f.gender.errors.required">Género es requerido</div>
+                    </div>
+                </div>
+                <div class="form-group col-6">
+                    <label>Fecha de Expedición Documento</label>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dniIssuedDate" formControlName="dniIssuedDate" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                    <div *ngIf="submitted && f.dniIssuedDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.dniIssuedDate.errors.required">Fecha de nacimiento es requerido</div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                <label for="acceptTerms" class="form-check-label">Acepto Términos y Condiciones</label>
+                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Por favor lee y acepta las condiciones</div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Registrar</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

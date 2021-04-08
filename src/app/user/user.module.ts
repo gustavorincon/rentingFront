@@ -5,16 +5,14 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserRoutingModule } from './user.routing';
 import Amplify, {Auth} from 'aws-amplify';
-import { FormsModule } from '@angular/forms';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { RentingSharedModule } from '../shared/shared.module';
+import { UserClientInfoComponent } from './components/user-client-info/user-client-info.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 Amplify.configure({  
   Auth:{  
-    mandatorySignIn:true,  
-    region: 'us-east-1',  
-    userPoolId: 'userPoolId',  
-    userPoolWebClientId: 'userPoolWebClientId',  
-    authenticationFlowType:'USER_PASSWORD_AUTH'  
   }
 });
 
@@ -23,12 +21,15 @@ Amplify.configure({
     HomeComponent,
     LoginComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PasswordResetComponent,
+    UserClientInfoComponent
   ],
   imports: [
+    RentingSharedModule,
     CommonModule,
     UserRoutingModule,
-    FormsModule
-  ]
+    NgbModule
+  ],
 })
 export class UserModule { }

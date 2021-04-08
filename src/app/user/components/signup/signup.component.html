@@ -1,31 +1,30 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="https://www.clipartmax.com/png/small/437-4379862_signup-icon-signup-sign-up-icon.png" id="icon" alt="User Icon" />
+        <div class="sign-in-out-title">
+            <h2>Registro</h2>
         </div>
 
-        <form>
-
+        <form name="signupForm" [formGroup]="signupForm">
             <div>
-                <input type="text" name="givenName" [(ngModel)]="givenName" required placeholder="Enter your first name">
+                <input type="email" formControlName="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div *ngIf="f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Campo requerido</div>
+                <div *ngIf="f.email.errors.email">Por favor ingrese un correo valido</div>
             </div>
 
             <div>
-                <input type="text" name="familyName" [(ngModel)]="familyName" required placeholder="Enter your last name">
+                <input type="password" formControlName="password" name="password" required placeholder="Enter your password">
             </div>
-
-            <div>
-                <input type="email" name="email" [(ngModel)]="email" required placeholder="Enter your email">
-            </div>
-
-            <div>
-                <input type="password" [(ngModel)]="password" name="password" required placeholder="Enter your password">
+            <div *ngIf="f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Campo requerido</div>
+                <div *ngIf="f.password.errors.minlength">debe ingresar mínimo 6 carácteres</div>
             </div>
 
             <div>
                 <br />
-                <button (click)="register()" class="btn btn-info btn-block" type="button"> Register </button>
+                <button (click)="register()" class="btn btn-info " type="button"> Crear mi cuenta </button>
             </div>
         </form>
         <div id="formFooter">
