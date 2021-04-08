@@ -7,6 +7,10 @@
         <!-- Login Form -->
         <form name="logginForm" [formGroup]="logginForm">
             <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Ingrese su email">
+            <div *ngIf="f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Campo requerido</div>
+                <div *ngIf="f.email.errors.email">Por favor ingrese un correo valido</div>
+            </div>
             <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña">
             <button (click)="login()" class="btn btn-info button " type="button"> Ingresar </button>
         </form>

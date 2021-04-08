@@ -13,8 +13,8 @@ export class SignupComponent implements OnInit {
 
   
   signupForm = this.fb.group({
-    email: [null, [Validators.required]],
-    password: [null, [Validators.required]],
+    email: [null, [Validators.required,Validators.email]],
+    password: [null, [Validators.required,Validators.minLength(6)]],
   });
   
     user:User 
@@ -26,6 +26,9 @@ export class SignupComponent implements OnInit {
     ngOnInit(): void {
   
     } 
+
+      // convenience getter for easy access to form fields
+   get f() { return this.signupForm.controls; }
     
     private getUserForm(): IUser{
       return new User(

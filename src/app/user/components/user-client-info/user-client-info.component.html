@@ -17,9 +17,11 @@
                 </div>
                 <div class="form-group col-6">
                     <label>Número de documento</label>
-                    <input type="text" formControlName="idNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idNumber.errors }" />
+                    <input type="text" min="0" formControlName="idNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idNumber.errors }" />
                     <div *ngIf="submitted && f.idNumber.errors" class="invalid-feedback">
                         <div *ngIf="f.idNumber.errors.required">Número documento es requerido</div>
+                        <div *ngIf="f.idNumber.errors.minlength">Debe ser un documento correcto</div>
+                        <div *ngIf="f.idNumber.errors.maxlength">debe ingresar solo 15 carácteres</div>
                     </div>
                 </div>
             </div>
@@ -66,9 +68,11 @@
                 </div>
                 <div class="form-group col-6">
                     <label>Teléfono</label>
-                    <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                    <input type="text" min="0" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
                     <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
                         <div *ngIf="f.phoneNumber.errors.required">Teléfono es requerido</div>
+                        <div *ngIf="f.phoneNumber.errors.minlength">debe ser un número válido</div>
+                        <div *ngIf="f.phoneNumber.errors.maxlength">debe ser un número válido</div>
                     </div>
                 </div>
             </div>

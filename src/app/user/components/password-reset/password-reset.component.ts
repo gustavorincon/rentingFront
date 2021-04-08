@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Auth } from 'aws-amplify';
+import { MustMatch } from 'src/app/shared/validators/must-match.validator';
 import { AuthService } from '../../services/auth.service';
 import { ResetUserPwdRequestDto,IResetUserPwdRequestDto } from '../../shared/dtos/resetUserPasswordRequest';
 import { IUser } from '../../shared/models/user.model';
@@ -15,11 +16,13 @@ import { IUser } from '../../shared/models/user.model';
 export class PasswordResetComponent implements OnInit {
 
   recoverForm = this.fb.group({
-    email: [null, [Validators.required]],
+    email: [null, [Validators.required,Validators.email]],
     verificationCode: [null, [Validators.required]],
-    newPwd: [null, [Validators.required]],
+    newPwd: [null, [Validators.required,Validators.minLength(6)]],
     newPwd2: [null, [Validators.required]],
-  });
+  },{
+    validator: MustMatch('newPwd', 'newPwd2')
+});
 
 
   codeSent:boolean = false
@@ -32,6 +35,9 @@ export class PasswordResetComponent implements OnInit {
   ngOnInit(): void {
     this.codeSent = false 
   }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.recoverForm.controls; }
 
   private getRequestForm(): IResetUserPwdRequestDto{
     return new ResetUserPwdRequestDto(

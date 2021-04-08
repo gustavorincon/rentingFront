@@ -25,13 +25,13 @@ export class UserClientInfoComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
         idType: ['', Validators.required],
-        idNumber: ['', Validators.required],
+        idNumber: ['', [Validators.required, Validators.minLength(5),Validators.maxLength(15)]],
         firstName: ['', Validators.required],
         secondName: [''],
         firstLastName: ['', Validators.required],
         secondLastName: [''],
         email: ['', [Validators.required, Validators.email]],
-        phoneNumber: ['', [Validators.required]],
+        phoneNumber: ['', [Validators.required, Validators.minLength(7),Validators.maxLength(12)]],
         address: ['', [Validators.required]],
         city: ['', Validators.required],
         gender: ['', Validators.required],
@@ -67,8 +67,12 @@ export class UserClientInfoComponent implements OnInit {
           return;
       }
       try {
-        this.clientManagerService.create(this.getClientModelForm()).subscribe()
-        //this.router.navigate(['renta/usuario/home']);   
+        this.clientManagerService.create(this.getClientModelForm()).subscribe( (response: any) => {
+          this.router.navigate(['renta/usuario/home']);
+        }, error => {
+            console.log('Error Consumiendo clientManagerService.create ', error);
+        } );
+           
       } catch (error) {
         console.log("Error registrando cliente => ",error)
       }

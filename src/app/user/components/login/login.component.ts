@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
 
   logginForm = this.fb.group({
-    email: [null, [Validators.required]],
+    email: [null, [Validators.required,Validators.email]],
     password: [null, [Validators.required]],
   });
 
@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+   // convenience getter for easy access to form fields
+   get f() { return this.logginForm.controls; }
 
   private getUserForm(): IUser{
     return new User(

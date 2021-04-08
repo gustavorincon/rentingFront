@@ -9,9 +9,17 @@
             <div>
                 <input type="email" formControlName="email" name="email" required placeholder="Enter your email">
             </div>
+            <div *ngIf="f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Campo requerido</div>
+                <div *ngIf="f.email.errors.email">Por favor ingrese un correo valido</div>
+            </div>
 
             <div>
                 <input type="password" formControlName="password" name="password" required placeholder="Enter your password">
+            </div>
+            <div *ngIf="f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Campo requerido</div>
+                <div *ngIf="f.password.errors.minlength">debe ingresar mínimo 6 carácteres</div>
             </div>
 
             <div>
