@@ -8,6 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 
 
 
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ComponentsModule,
     AdminRoutingModule,
+    AdminLayoutModule,
    // BrowserAnimationsModule,
    FormsModule,
     HttpClientModule,
