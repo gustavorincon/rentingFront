@@ -393,7 +393,7 @@ export class DashboardComponent implements OnInit {
               display: false
             },
             gridLines: {
-              zeroLineColor: "transparent",
+              zeroLineColor: 'transparent',
               drawTicks: false,
               display: false,
               drawBorder: false
