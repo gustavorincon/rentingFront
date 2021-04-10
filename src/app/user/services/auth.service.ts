@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import Amplify, {Auth} from 'aws-amplify';
+import { Observable, throwError } from 'rxjs';
 import { IResetUserPwdRequestDto, ResetUserPwdRequestDto } from '../shared/dtos/resetUserPasswordRequest';
 import { User } from '../shared/models/user.model';
 
@@ -13,6 +15,10 @@ export class AuthService {
 
   constructor(private router: Router) { }
 
+  errorHandler(error: Error) {
+    return throwError(error.message || "Auth error.");
+  }
+
   async isLogged(): Promise<boolean> { 
     try { 
       var userSession =  await Auth.currentSession()
@@ -20,7 +26,7 @@ export class AuthService {
       return (userSession != null)
     } catch (error) {
       console.log(error);    
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         let data:boolean = false;
         resolve(data);
     });
@@ -29,20 +35,9 @@ export class AuthService {
 
 
   // Function para logueo con cognito
-  async login(user: User) {    
-    console.log('entra a login')
-        try {    
-          var cognitoUser = await Auth.signIn(user.email.toString(), user.password.toString());    
-          console.log('Authentication performed for user=' + user.email + 'password=' + user.password + ' login result==' + cognitoUser);    
-          var tokens = cognitoUser.signInUserSession;    
-          if (tokens != null) {    
-            console.log('User authenticated'); 
-            this.router.navigate(['renta/usuario/client-info']);    
-          }    
-        } catch (error) {
-          console.log(error);    
-        }
-      }
+  async login(user: User){    
+    return Auth.signIn(user.email.toString(), user.password.toString());    
+  }
 
 
   async logout() {      
@@ -69,7 +64,6 @@ export class AuthService {
   async recoverAccount(recoverRequest:IResetUserPwdRequestDto): Promise<boolean> {    
     console.log('recoverAccount => ',recoverRequest.email.toString())
         try {    
-          var user = await Auth.forgotPassword(recoverRequest.email.toString());    
           console.log('Password reset = ' + recoverRequest.email);  
           return true
         } catch (error) {
@@ -86,7 +80,6 @@ export class AuthService {
               throw new Error('deben ser iguales')
             } 
             console.log('Authentication performed for user= ' + recoverRequest.email + ' code=' + recoverRequest.verificationCode + ' newPwd==' + recoverRequest.newPwd);    
-            var user = await Auth.forgotPasswordSubmit(recoverRequest.email.toString(), recoverRequest.verificationCode.toString(), recoverRequest.newPwd.toString());                
             this.router.navigate(['/renta/usuario/login']);     
           } catch (error) {
             console.log(error);    

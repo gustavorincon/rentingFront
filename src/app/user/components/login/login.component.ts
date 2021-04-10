@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { IUser, User } from '../../shared/models/user.model';
 
@@ -10,7 +11,8 @@ import { IUser, User } from '../../shared/models/user.model';
   styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class LoginComponent implements OnInit {
-
+  submitted = false;
+  authErrorMessage:string= "";
 
   logginForm = this.fb.group({
     email: [null, [Validators.required,Validators.email]],
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
+    this.authErrorMessage=""
   }
 
    // convenience getter for easy access to form fields
@@ -39,6 +41,23 @@ export class LoginComponent implements OnInit {
   }
   
   async login(){
-    this.authService.login(this.getUserForm())
+    this.submitted = true;
+    if (this.logginForm.invalid) {
+      return;
+    }
+    this.authService.login(this.getUserForm()).then(data=>{
+      this.authErrorMessage = ""
+      console.log(data)
+    },err=>{
+      if(err.code == "UserNotFoundException"){
+        this.authErrorMessage = "El usuario con el correo indicado no existe, por favor crea un usuario nuevo"
+      }
+      if(err.code =="NotAuthorizedException"){
+        this.authErrorMessage = "Usuario o contraseña no valido"
+      }
+      console.log(err);
+    });
+
   }
+
 }
