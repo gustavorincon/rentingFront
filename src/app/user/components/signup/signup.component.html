@@ -5,7 +5,7 @@
             <h2>Registro</h2>
         </div>
 
-        <form name="signupForm" [formGroup]="signupForm">
+        <form name="signupForm" [formGroup]="signupForm" (ngSubmit)="register()">
             <div>
                 <input type="email" formControlName="email" name="email" required placeholder="Enter your email">
             </div>
@@ -20,11 +20,12 @@
             <div *ngIf="f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required">Campo requerido</div>
                 <div *ngIf="f.password.errors.minlength">debe ingresar mínimo 6 carácteres</div>
+                <div *ngIf="f.password.errors.maxlength">No pudes exceder los 12 carácteres</div>
             </div>
 
             <div>
                 <br />
-                <button (click)="register()" class="btn btn-info " type="button"> Crear mi cuenta </button>
+                <button class="btn btn-primary mr-1">Crear mi cuenta</button>
             </div>
         </form>
         <div id="formFooter">

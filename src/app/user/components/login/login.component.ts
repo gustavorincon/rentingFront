@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     '',
     this.logginForm.get(['email']).value,
     this.logginForm.get(['password']).value,
-    '',);
+    );
   }
   
   async login(){

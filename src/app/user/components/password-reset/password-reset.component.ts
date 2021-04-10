@@ -16,7 +16,7 @@ import { IUser } from '../../shared/models/user.model';
 export class PasswordResetComponent implements OnInit {
 
   recoverForm = this.fb.group({
-    email: [null, [Validators.required,Validators.email]],
+    email: [null, [Validators.required,Validators.email]],  
     verificationCode: [null, [Validators.required]],
     newPwd: [null, [Validators.required,Validators.minLength(6)]],
     newPwd2: [null, [Validators.required]],

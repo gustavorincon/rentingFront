@@ -3,7 +3,6 @@ export interface IUser{
     lastName:string;
     email: string;  
     password: string;
-    username: string;
 }
 
 
@@ -13,6 +12,5 @@ export class User implements IUser{
         public lastName:string,
         public email: string,  
         public password: string,
-        public username: string,
     ){}
 }

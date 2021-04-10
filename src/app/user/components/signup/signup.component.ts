@@ -10,11 +10,11 @@ import { IUser, User } from '../../shared/models/user.model';
   styleUrls: ['/src/app/user/user.component.css'] 
 })
 export class SignupComponent implements OnInit {
-
+  submitted = false;
   
   signupForm = this.fb.group({
-    email: [null, [Validators.required,Validators.email]],
-    password: [null, [Validators.required,Validators.minLength(6)]],
+    email: [null, [Validators.required,Validators.email,Validators.maxLength(45)]],
+    password: [null, [Validators.required,Validators.minLength(6),Validators.maxLength(12)]],
   });
   
     user:User 
@@ -36,11 +36,16 @@ export class SignupComponent implements OnInit {
       '',
       this.signupForm.get(['email']).value,
       this.signupForm.get(['password']).value,
-      '');
+      );
     }
 
 
     async register(){
+      
+    this.submitted = true;
+    if (this.signupForm.invalid) {
+      return;
+    }
       this.authService.signUp(this.getUserForm())
     }
 }
