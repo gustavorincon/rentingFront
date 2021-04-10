@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
     '',
     '',
     this.logginForm.get(['email']).value,
-    this.logginForm.get(['password']).value);
+    this.logginForm.get(['password']).value,
+    '',);
   }
   
   async login(){
@@ -45,9 +46,9 @@ export class LoginComponent implements OnInit {
     if (this.logginForm.invalid) {
       return;
     }
-    this.authService.login(this.getUserForm()).then(data=>{
-      this.authErrorMessage = ""
-      console.log(data)
+    this.authService.login(this.getUserForm()).then(()=>{      
+      this.authErrorMessage = ""  
+      this.router.navigate(['renta/usuario/client-info']); 
     },err=>{
       if(err.code == "UserNotFoundException"){
         this.authErrorMessage = "El usuario con el correo indicado no existe, por favor crea un usuario nuevo"
@@ -57,6 +58,8 @@ export class LoginComponent implements OnInit {
       }
       console.log(err);
     });
+
+   
 
   }
 

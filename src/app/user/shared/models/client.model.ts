@@ -5,12 +5,18 @@ export interface IClient{
     secondName:string; 
     firstLastName:string; 
     secondLastName:string; 
-    email:string; 
-    phoneNumber:string; 
-    address:string; 
-    city:string; 
     gender:string; 
     dniIssuedDate:string; 
+    contact:IContact;
+}
+
+export interface IContact{ 
+    email:string; 
+    cellphone:string; 
+    address:string; 
+    city:string; 
+    state:string; 
+    country:string; 
 }
 
 
@@ -22,11 +28,20 @@ export class Client implements IClient{
         public secondName:string, 
         public firstLastName:string, 
         public secondLastName:string, 
-        public email:string, 
-        public phoneNumber:string, 
-        public address:string,
-        public city:string,
         public gender:string, 
         public dniIssuedDate:string, 
+        public contact:IContact
+    ){}
+}
+
+
+export class Contact implements IContact{
+    constructor(
+        public email:string, 
+        public cellphone:string, 
+        public address:string,
+        public city:string,
+        public state:string, 
+        public country:string, 
     ){}
 }

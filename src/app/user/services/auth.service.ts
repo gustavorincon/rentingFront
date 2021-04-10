@@ -1,9 +1,9 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import Amplify, {Auth} from 'aws-amplify';
-import { Observable, throwError } from 'rxjs';
-import { IResetUserPwdRequestDto, ResetUserPwdRequestDto } from '../shared/dtos/resetUserPasswordRequest';
+import {Auth} from 'aws-amplify';
+import { throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { IResetUserPwdRequestDto } from '../shared/dtos/resetUserPasswordRequest';
 import { User } from '../shared/models/user.model';
 
 @Injectable({
@@ -32,6 +32,13 @@ export class AuthService {
     });
     }
    }
+
+   async getCurrentUserName(): Promise<string> { 
+    return Auth.currentAuthenticatedUser().then(user =>{
+      return user?.getUsername()
+    })
+  }
+
 
 
   // Function para logueo con cognito
@@ -70,8 +77,10 @@ export class AuthService {
           console.log(error);    
           return false
         }
-      }
+  }
 
+
+ 
 
     async changePwd(recoverRequest:IResetUserPwdRequestDto) {    
       console.log('entra a login')

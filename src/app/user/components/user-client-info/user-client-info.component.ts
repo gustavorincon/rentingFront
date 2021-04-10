@@ -5,8 +5,9 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
+import { AuthService } from '../../services/auth.service';
 import { ClientManagerService } from '../../services/client-manager/client-manager.service';
-import { Client, IClient } from '../../shared/models/client.model';
+import { Client, Contact, IClient } from '../../shared/models/client.model';
 
 @Component({
   selector: 'app-user-client-info',
@@ -18,9 +19,11 @@ export class UserClientInfoComponent implements OnInit {
   registerForm: FormGroup;
   model: NgbDateStruct;
   submitted = false;
+  authEmail:string;
 
   constructor(private formBuilder: FormBuilder,
     private clientManagerService: ClientManagerService,  
+    private authService: AuthService,
     private router: Router) { }
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -30,7 +33,6 @@ export class UserClientInfoComponent implements OnInit {
         secondName: [''],
         firstLastName: ['', Validators.required],
         secondLastName: [''],
-        email: ['', [Validators.required, Validators.email]],
         phoneNumber: ['', [Validators.required, Validators.minLength(7),Validators.maxLength(12)]],
         address: ['', [Validators.required]],
         city: ['', Validators.required],
@@ -38,6 +40,10 @@ export class UserClientInfoComponent implements OnInit {
         dniIssuedDate: ['', Validators.required],
         acceptTerms: [false, Validators.requiredTrue]
       });
+
+      this.authService.getCurrentUserName().then(userName =>{
+        this.authEmail = userName
+      } )
   }
 
   // convenience getter for easy access to form fields
@@ -51,13 +57,17 @@ export class UserClientInfoComponent implements OnInit {
     this.registerForm.get(['firstName']).value,
     this.registerForm.get(['secondName']).value,
     this.registerForm.get(['firstLastName']).value,
-    this.registerForm.get(['secondLastName']).value,
-    this.registerForm.get(['email']).value,
-    this.registerForm.get(['phoneNumber']).value,
-    this.registerForm.get(['address']).value,
-    this.registerForm.get(['city']).value,
+    this.registerForm.get(['secondLastName']).value,      
     this.registerForm.get(['gender']).value,
-    this.registerForm.get(['dniIssuedDate']).value);
+    this.registerForm.get(['dniIssuedDate']).value,
+    new Contact( 
+      this.authEmail,
+      this.registerForm.get(['phoneNumber']).value,
+      this.registerForm.get(['address']).value,
+      this.registerForm.get(['city']).value,
+      '',
+      ''
+    ));
   }
   
  
@@ -68,7 +78,7 @@ export class UserClientInfoComponent implements OnInit {
       }
       try {
         this.clientManagerService.create(this.getClientModelForm()).subscribe( (response: any) => {
-          this.router.navigate(['renta/usuario/home']);
+          this.router.navigate(['renta/administrador']);
         }, error => {
             console.log('Error Consumiendo clientManagerService.create ', error);
         } );
