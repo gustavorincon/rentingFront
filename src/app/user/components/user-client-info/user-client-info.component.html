@@ -8,8 +8,8 @@
                     <label>Tipo de documento</label>
                     <select formControlName="idType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idType.errors }">
                         <option value=""></option>
-                        <option value="CC">Cédula de Ciudadanía</option>
-                        <option value="CE">Cédula de Extranjeria </option>
+                        <option value="C">Cédula de Ciudadanía</option>
+                        <option value="C">Cédula de Extranjeria </option>
                     </select>
                     <div *ngIf="submitted && f.idType.errors" class="invalid-feedback">
                         <div *ngIf="f.idType.errors.required">Tipo documento es requerido</div>

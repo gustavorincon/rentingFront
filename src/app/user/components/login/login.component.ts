@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
+import { ClientManagerService } from '../../services/client-manager/client-manager.service';
 import { IUser, User } from '../../shared/models/user.model';
 
 @Component({
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(private authService: AuthService,  
+    private clientManagerService:ClientManagerService,
     private fb: FormBuilder,
     private router: Router) { 
 
@@ -40,6 +42,18 @@ export class LoginComponent implements OnInit {
     this.logginForm.get(['password']).value,
     );
   }
+
+  validateEmailExists(email: string): Boolean{
+    try {
+       this.clientManagerService.getByEmail(email).subscribe(response=>{
+        return response
+      })
+    } catch (error) {
+      console.log("Error validando existencia  cliente => ",error)
+      return false
+    }
+    
+  }
   
   async login(){
     this.submitted = true;
@@ -48,15 +62,23 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.getUserForm()).then(()=>{      
       this.authErrorMessage = ""  
-      this.router.navigate(['renta/usuario/client-info']); 
+      /// Validate if registration is required, notice the username is equal to email 
+      this.authService.getCurrentUserName().then(userName =>{        
+        if(this.validateEmailExists(userName)){
+          this.router.navigate(['renta/administrador']);
+        }else{
+          this.router.navigate(['renta/usuario/client-info']); 
+        }      
+    })
+      
     },err=>{
+      console.log(err);
       if(err.code == "UserNotFoundException"){
         this.authErrorMessage = "El usuario con el correo indicado no existe, por favor crea un usuario nuevo"
       }
       if(err.code =="NotAuthorizedException"){
         this.authErrorMessage = "Usuario o contraseña no valido"
       }
-      console.log(err);
     });
 
    

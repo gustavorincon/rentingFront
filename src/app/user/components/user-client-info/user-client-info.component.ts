@@ -41,9 +41,6 @@ export class UserClientInfoComponent implements OnInit {
         acceptTerms: [false, Validators.requiredTrue]
       });
 
-      this.authService.getCurrentUserName().then(userName =>{
-        this.authEmail = userName
-      } )
   }
 
   // convenience getter for easy access to form fields
@@ -76,8 +73,9 @@ export class UserClientInfoComponent implements OnInit {
       if (this.registerForm.invalid) {
           return;
       }
+      const clientRecord = this.getClientModelForm()
       try {
-        this.clientManagerService.create(this.getClientModelForm()).subscribe( (response: any) => {
+        this.clientManagerService.create(clientRecord).subscribe( (response: any) => {
           this.router.navigate(['renta/administrador']);
         }, error => {
             console.log('Error Consumiendo clientManagerService.create ', error);
@@ -90,14 +88,6 @@ export class UserClientInfoComponent implements OnInit {
   }
 
 
-  validateExists(dni: string): Observable<boolean>{
-    try {
-      return this.clientManagerService.get(dni).pipe(map(rest => rest.firstName.length>0))
-    } catch (error) {
-      console.log("Error validando existencia  cliente => ",error)
-    }
-    
-  }
 
   onReset() {
       this.submitted = false;

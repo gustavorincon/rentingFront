@@ -43,6 +43,11 @@ export class ClientManagerService {
     return this._http.get<IClient>(url)
   }
 
+  getByEmail(email: string): Observable<Boolean>{    
+    const url = `${ this.urlBase }/email/${ email }`;
+    return this._http.get<Boolean>(url)
+  }
+
   update(client: Client){
 
   }
