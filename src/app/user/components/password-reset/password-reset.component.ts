@@ -15,10 +15,16 @@ import { IUser } from '../../shared/models/user.model';
 })
 export class PasswordResetComponent implements OnInit {
 
-  recoverForm = this.fb.group({
-    email: [null, [Validators.required,Validators.email]],  
+  submitted = false;
+  codeErrorMessage:string= "";
+  codeSucessMessage:string= "";
+  recoverErrorMessage:string= "";
+  recoverSucessMessage:string= "";
+  emailField:string= "";
+
+  recoverForm = this.fb.group({ 
     verificationCode: [null, [Validators.required]],
-    newPwd: [null, [Validators.required,Validators.minLength(6)]],
+    newPwd: [null, [Validators.required,Validators.minLength(6),Validators.maxLength(12)]],
     newPwd2: [null, [Validators.required]],
   },{
     validator: MustMatch('newPwd', 'newPwd2')
@@ -41,18 +47,30 @@ export class PasswordResetComponent implements OnInit {
 
   private getRequestForm(): IResetUserPwdRequestDto{
     return new ResetUserPwdRequestDto(
-    this.recoverForm.get(['email']).value,
+    this.emailField,
     this.recoverForm.get(['verificationCode'])?.value,
     this.recoverForm.get(['newPwd'])?.value,
     this.recoverForm.get(['newPwd2'])?.value);
   }
 
-  async recoverAccount() {    
+  async recoverAccount() {  
+    console.log('this.emailField => ',this.emailField)  
+    if(this.emailField.length<=0){
+      this.codeErrorMessage = "Debe indicar un correo"
+      return
+    }
     this.codeSent = await this.authService.recoverAccount(this.getRequestForm())
+    this.codeSucessMessage = "Hemos enviado un código al correo indicado, por favor verifica para continuar"
   }
 
-  async changePwd() {   
+  async changePwd() {  
+    this.submitted = true; 
+    if (this.recoverForm.invalid) {
+      return;
+    }
     this.authService.changePwd(this.getRequestForm())
+    this.recoverSucessMessage = "Los cambios fueron exitosos, ve a iniciar sesión (link abajo)"
+
   }
 
 }

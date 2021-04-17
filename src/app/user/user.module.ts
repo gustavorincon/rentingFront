@@ -12,9 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 Amplify.configure({  
-  Auth:{    
+  Auth:{     
   }
-
 });
 
 @NgModule({

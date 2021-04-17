@@ -6,7 +6,7 @@
 
         <!-- Login Form -->
         <form [formGroup]="logginForm" (ngSubmit)="login()">
-            <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Ingrese su email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Ingrese su correo" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
             <div *ngIf="f.email.errors" class="invalid-feedback">
                 <div *ngIf="submitted && f.email.errors.required">Campo requerido</div>
                 <div *ngIf="submitted && f.email.errors.email">Por favor ingrese un correo valido</div>

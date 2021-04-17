@@ -1,35 +1,27 @@
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <!-- Icon -->
         <div class="sign-in-out-title">
-            <h2>Registro</h2>
+            <h2>Crear Usuario</h2>
         </div>
-
-        <form name="signupForm" [formGroup]="signupForm" (ngSubmit)="register()">
-            <div>
-                <input type="email" formControlName="email" name="email" required placeholder="Enter your email">
-            </div>
+        <!-- Signup Form -->
+        <form [formGroup]="signupForm" (ngSubmit)="register()">
+            <input type="email" formControlName="email" id="email" class="fadeIn second" name="email" placeholder="Correo" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
             <div *ngIf="f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">Campo requerido</div>
-                <div *ngIf="f.email.errors.email">Por favor ingrese un correo valido</div>
+                <div *ngIf="submitted && f.email.errors.required">Campo requerido</div>
+                <div *ngIf="submitted && f.email.errors.email">Por favor ingrese un correo valido</div>
+                <div *ngIf="submitted && f.email.errors.maxlength">Ups!, el correo es muy largo</div>
             </div>
+            <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña">
 
-            <div>
-                <input type="password" formControlName="password" name="password" required placeholder="Enter your password">
-            </div>
             <div *ngIf="f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Campo requerido</div>
-                <div *ngIf="f.password.errors.minlength">debe ingresar mínimo 6 carácteres</div>
-                <div *ngIf="f.password.errors.maxlength">No pudes exceder los 12 carácteres</div>
+                <div *ngIf="submitted && f.password.errors.required">Campo requerido</div>
+                <div *ngIf="submitted && f.password.errors.minlength">debe ingresar mínimo 6 carácteres</div>
+                <div *ngIf="submitted && f.password.errors.maxlength">No pudes exceder los 12 carácteres</div>
             </div>
-
-            <div>
-                <br />
-                <button class="btn btn-primary mr-1">Crear mi cuenta</button>
-            </div>
+            <button class="btn btn-primary mr-1">Crear mi cuenta</button>
         </form>
         <div id="formFooter">
-            <a class="underlineHover" href="/renta/usuario/login">¿Ya tienes una cuenta?</a>
+            <a class="underlineHover" href="/renta/usuario/login">Ya tengo un usuario</a>
         </div>
     </div>
 </div>

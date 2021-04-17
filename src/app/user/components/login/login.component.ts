@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { ClientManagerService } from '../../services/client-manager/client-manager.service';
 import { IUser, User } from '../../shared/models/user.model';
@@ -43,16 +44,22 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  validateEmailExists(email: string): Boolean{
-    try {
-       this.clientManagerService.getByEmail(email).subscribe(response=>{
-        return response
-      })
-    } catch (error) {
-      console.log("Error validando existencia  cliente => ",error)
-      return false
-    }
-    
+  validateEmailExists(email: string){
+    console.log(" cliente a validar => ",email)
+    this.clientManagerService.getByEmail(email)
+    .pipe(catchError(err => of(false)))
+    .subscribe(
+      res=>{
+        console.log("response existencia  cliente => ",res)
+        if(res) this.router.navigate(['renta/administrador'])
+        else this.router.navigate(['renta/usuario/client-info'])
+        
+      },
+      er => {
+        console.log("Error existencia  cliente => ",er)        
+        this.router.navigate(['renta/usuario/client-info']);
+      }
+    )
   }
   
   async login(){
@@ -63,12 +70,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.getUserForm()).then(()=>{      
       this.authErrorMessage = ""  
       /// Validate if registration is required, notice the username is equal to email 
-      this.authService.getCurrentUserName().then(userName =>{        
-        if(this.validateEmailExists(userName)){
-          this.router.navigate(['renta/administrador']);
-        }else{
-          this.router.navigate(['renta/usuario/client-info']); 
-        }      
+      this.authService.getCurrentUserName().then(userName =>{   
+        this.validateEmailExists(userName)    
     })
       
     },err=>{
