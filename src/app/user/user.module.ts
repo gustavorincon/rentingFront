@@ -11,8 +11,8 @@ import { UserClientInfoComponent } from './components/user-client-info/user-clie
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-Amplify.configure({  
-  Auth:{     
+Amplify.configure({
+  Auth: {
   }
 });
 
