@@ -61,10 +61,11 @@ export class PasswordResetComponent implements OnInit {
   async recoverAccount() {  
     this.submitted = true;  
     if (this.codeForm.invalid) {
+      console.log("recoverAccount form invalid")
       return;
     }
     this.codeSent = await this.authService.recoverAccount(this.getRequestForm())
-    this.codeSucessMessage = "Hemos enviado un código al correo indicado, por favor verifica para continuar"
+    this.codeSucessMessage = "Código enviado correctamente!, por favor verifica en tu correo"
   }
 
   async changePwd() {

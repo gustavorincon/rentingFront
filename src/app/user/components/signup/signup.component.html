@@ -11,12 +11,16 @@
                 <div *ngIf="submitted && f.email.errors.email">Por favor ingrese un correo valido</div>
                 <div *ngIf="submitted && f.email.errors.maxlength">Ups!, el correo es muy largo</div>
             </div>
-            <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña">
-
+            <input type="password" formControlName="password" id="password" class="fadeIn third" name="password" placeholder="Ingrese su contraseña" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
             <div *ngIf="f.password.errors" class="invalid-feedback">
                 <div *ngIf="submitted && f.password.errors.required">Campo requerido</div>
                 <div *ngIf="submitted && f.password.errors.minlength">debe ingresar mínimo 6 carácteres</div>
                 <div *ngIf="submitted && f.password.errors.maxlength">No pudes exceder los 12 carácteres</div>
+            </div>
+            <input type="password" formControlName="confirmPassword" id="confirmPassword" class="fadeIn third" name="confirmPassword" placeholder="Repite la contraseña" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+            <div *ngIf="f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">Campo requerido</div>
+                <div *ngIf="submitted && f.confirmPassword.errors.mustMatch">Contraseñas deben ser iguales</div>
             </div>
             <button class="btn btn-primary mr-1">Crear mi cuenta</button>
         </form>
