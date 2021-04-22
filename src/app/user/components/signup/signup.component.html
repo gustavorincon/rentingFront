@@ -24,6 +24,10 @@
             </div>
             <button class="btn btn-primary mr-1">Crear mi cuenta</button>
         </form>
+        <ngb-alert #selfClosingAlert *ngIf="signupMessage && signupError" type="danger" (closed)="signupMessage = ''">{{ signupMessage }}
+        </ngb-alert>
+        <ngb-alert #selfClosingAlert *ngIf="signupMessage && !signupError" type="info" (closed)="signupMessage = ''">{{ signupMessage }}
+        </ngb-alert>
         <div id="formFooter">
             <a class="underlineHover" href="/renta/usuario/login">Ya tengo un usuario</a>
         </div>

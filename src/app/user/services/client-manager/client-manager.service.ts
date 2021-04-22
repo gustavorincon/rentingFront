@@ -10,7 +10,6 @@ import { Observable, throwError } from 'rxjs';
 export class ClientManagerService {
   private urlBase = '/qa/clients'
 
-  //https://23j9ok8564.execute-api.us-east-1.amazonaws.com/qa/clients/C1116237362'
 
   constructor(private _http : HttpClient) { }
 

@@ -63,28 +63,29 @@ export class LoginComponent implements OnInit {
   }
   
   async login(){
+    this.authErrorMessage = '';
     this.submitted = true;
     if (this.logginForm.invalid) {
       return;
     }
-    this.authService.login(this.getUserForm()).then(()=>{      
-      this.authErrorMessage = ""  
+    this.authService.login(this.getUserForm()).then(() => {
       /// Validate if registration is required, notice the username is equal to email 
-      this.authService.getCurrentUserName().then(userName =>{   
-        this.validateEmailExists(userName)    
-    })
-      
-    },err=>{
+      this.authService.getCurrentUserName().then(userName => {
+        this.validateEmailExists(userName);
+      });
+    }, err => {
       console.log(err);
-      if(err.code == "UserNotFoundException"){
-        this.authErrorMessage = "El usuario con el correo indicado no existe, por favor crea un usuario nuevo"
+      this.authErrorMessage = 'Error en el ingreso del usuario';
+      if (err.code === 'UserNotFoundException'){
+        this.authErrorMessage = 'El usuario con el correo indicado no existe, por favor crea un usuario nuevo';
       }
-      if(err.code =="NotAuthorizedException"){
-        this.authErrorMessage = "Usuario o contraseña no valido"
+      if (err.code === 'NotAuthorizedException'){
+        this.authErrorMessage = 'Usuario o contraseña no valido';
+      }
+      if (err.code === 'UserNotConfirmedException'){
+        this.authErrorMessage = 'Primero debes confirmar el usuario desde tu correo';
       }
     });
-
-   
 
   }
 

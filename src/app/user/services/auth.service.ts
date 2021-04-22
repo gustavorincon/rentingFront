@@ -53,18 +53,13 @@ export class AuthService {
 
 
   signUp(user: User){
-    try {
-      const cognitoUser = Auth.signUp({
+      return Auth.signUp({
         username: user.email,
         password: user.password,
         attributes: {
           email: user.email
         }
       });
-      console.log('El usuairo es => ', { cognitoUser });
-    } catch (error) {
-      console.log('error signing up:', error);
-    }
   }
 
   async recoverAccount(recoverRequest:IResetUserPwdRequestDto): Promise<boolean> {
