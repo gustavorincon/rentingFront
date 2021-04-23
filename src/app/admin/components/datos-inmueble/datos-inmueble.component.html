@@ -1,0 +1,31 @@
+<div class="row form-data">
+    <div class="col-12 col-md-8 mx-auto p-0">
+        <lib-input-select-material-desing (change)="ValidateTipoOfertas()" [items]="tiposOferta" [currentFormControl]="tipoOferta" label="Tipo oferta*">
+        </lib-input-select-material-desing>
+        <lib-input-select-material-desing (change)="ValidateTipoInmueble()" [items]="tiposInmuebles" [currentFormControl]="tipoInmueble" label="Tipo inmueble*">
+        </lib-input-select-material-desing>
+
+        <lib-input-text-material-desing label="Ciudad*" [maxLength]="40" [currentFormControl]="ciudadInmueble"></lib-input-text-material-desing>
+        <lib-input-text-material-desing label="Barrio*" [maxLength]="40" [currentFormControl]="barrioInmueble"></lib-input-text-material-desing>
+        <lib-input-text-material-desing label="Dirección*" [maxLength]="40" [currentFormControl]="direccionInmueble"></lib-input-text-material-desing>
+
+        <lib-input-text-material-desing label="precio*" [maxLength]="40" [currentFormControl]="precioInmueble"></lib-input-text-material-desing>
+        <lib-input-select-material-desing (change)="ValidateEstrato()" [items]="estratosInmueble" [currentFormControl]="estratoInmueble" label="Estrato*">
+        </lib-input-select-material-desing>
+        <lib-input-text-material-desing label="Area*" [maxLength]="40" [currentFormControl]="areaInmueble"></lib-input-text-material-desing>
+
+        <lib-input-select-material-desing (change)="ValidateHabitaciones()" [items]="habitacionesInmueble" [currentFormControl]="numeroHabitaciones" label="Numero habitaciones*">
+        </lib-input-select-material-desing>
+        <lib-input-select-material-desing (change)="ValidateBanos()" [items]="banosInmueble" [currentFormControl]="numeroBanos" label="Numero baños*">
+        </lib-input-select-material-desing>
+        <lib-input-select-material-desing (change)="ValidatePisos()" [items]="pisosInmueble" [currentFormControl]="pisosInterioes" label="Numero pisos*">
+        </lib-input-select-material-desing>
+
+        <lib-input-select-material-desing [currentFormControl]="estadoInmueble" [items]="estadosInmuebles" label="Estado inmueble*">
+        </lib-input-select-material-desing>
+
+        <lib-button buttonType="submit" variant="primary">
+            Guardar
+        </lib-button>
+    </div>
+</div>

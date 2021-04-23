@@ -9,23 +9,17 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { NgModule } from '@angular/core';
-
-/*export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent }
-];*/
+import { RegistroInmuebleComponent } from '../../containers/registro-inmueble/registro-inmueble.component';
 
 
 export const AdminLayoutRoutes: Routes = [
     {
       path: '',
       children: [
+        {
+          path: 'registro-inmueble',
+          component: RegistroInmuebleComponent,
+        },
         {
           path: 'dashboard',
           component: DashboardComponent,

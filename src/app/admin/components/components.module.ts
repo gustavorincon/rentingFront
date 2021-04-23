@@ -6,22 +6,31 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { DatosInmuebleComponent } from './datos-inmueble/datos-inmueble.component';
+import { InputsModule } from 'src/external-apis/form-components/src/public-api';
+import { errorControls } from '../shared/model/const-errors';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    InputsModule.forRoot(errorControls),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DatosInmuebleComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DatosInmuebleComponent
   ]
 })
 export class ComponentsModule { }
