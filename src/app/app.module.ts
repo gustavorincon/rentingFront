@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './store/reducers/app.reducers';
 
 
 
@@ -17,6 +20,8 @@ const commonModules = [];
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument(),
     ...commonModules,
   ],
   providers: [],
