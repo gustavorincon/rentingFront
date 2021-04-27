@@ -8,7 +8,7 @@ export interface State {
 
 export const initialState: State = {
     tramietesInmueble: initialInmuebleState
-}
+};
 
 
 export function getInitialState(): State {

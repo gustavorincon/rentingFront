@@ -9,4 +9,5 @@ export interface InmuebleState {
 
 export const initialInmuebleState: InmuebleState = {
     nuevoInmueble: null
+
 };
