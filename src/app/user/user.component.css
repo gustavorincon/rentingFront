@@ -15,7 +15,7 @@ body {
 }
 
 a {
-    color: #92badd;
+    color: #375774;
     display: inline-block;
     text-decoration: none;
     font-weight: 400;
@@ -28,7 +28,7 @@ h2 {
     text-transform: uppercase;
     display: inline-block;
     margin: 40px 8px 10px 8px;
-    color: #fffefe;
+    color: #646060;
 }
 
 
@@ -51,7 +51,7 @@ h2 {
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: rgb(99, 105, 105);
+    background: rgb(236, 241, 241);
     opacity: 0.90;
     padding: 10px;
     width: 45%;
@@ -66,7 +66,7 @@ h2 {
 
 #formFooter {
     background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
+    border-top: 1px solid #b8c0c7;
     padding: 25px;
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
@@ -92,8 +92,8 @@ input[type=button],
 input[type=submit],
 input[type=reset] {
     background-color: #2b8eeb;
-    border: none;
-    color: white;
+    border: #4e4c4c;
+    color: rgb(110, 92, 92);
     padding: 15px 80px;
     text-align: center;
     text-decoration: none;
@@ -132,7 +132,7 @@ input[type=text],
 input[type=email],
 input[type=password] {
     background-color: #f6f6f6;
-    border: none;
+    border: 1px solid #8da3b4;
     color: #0d0d0d;
     padding: 15px 32px;
     text-align: center;
@@ -141,7 +141,6 @@ input[type=password] {
     font-size: 16px;
     margin: 5px;
     width: 85%;
-    border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;

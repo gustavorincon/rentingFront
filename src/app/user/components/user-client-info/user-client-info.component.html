@@ -8,8 +8,8 @@
                     <label>Tipo de documento</label>
                     <select formControlName="idType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idType.errors }">
                         <option value=""></option>
-                        <option value="CC">Cédula de Ciudadanía</option>
-                        <option value="CE">Cédula de Extranjeria </option>
+                        <option value="C">Cédula de Ciudadanía</option>
+                        <option value="E">Cédula de Extranjeria </option>
                     </select>
                     <div *ngIf="submitted && f.idType.errors" class="invalid-feedback">
                         <div *ngIf="f.idType.errors.required">Tipo documento es requerido</div>
@@ -59,14 +59,6 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-6">
-                    <label>Correo</label>
-                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">Correo es requerido</div>
-                        <div *ngIf="f.email.errors.email">Por favor digita un correo válido</div>
-                    </div>
-                </div>
-                <div class="form-group col-6">
                     <label>Teléfono</label>
                     <input type="text" min="0" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
                     <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
@@ -75,9 +67,6 @@
                         <div *ngIf="f.phoneNumber.errors.maxlength">debe ser un número válido</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="form-row">
                 <div class="form-group col-6">
                     <label>Dirección</label>
                     <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
@@ -86,6 +75,9 @@
                         <div *ngIf="f.address.errors.email">Por favor digita una dirección</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group col-6">
                     <label>Ciudad</label>
                     <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
@@ -93,9 +85,6 @@
                         <div *ngIf="f.city.errors.required">ciudad es requerido</div>
                     </div>
                 </div>
-            </div>
-
-            <div class="form-row">
                 <div class="form-group col-6">
                     <label>Género</label>
                     <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
@@ -107,6 +96,9 @@
                         <div *ngIf="f.gender.errors.required">Género es requerido</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group col-6">
                     <label>Fecha de Expedición Documento</label>
                     <div class="input-group">
@@ -118,15 +110,12 @@
                     <div *ngIf="submitted && f.dniIssuedDate.errors" class="invalid-feedback">
                         <div *ngIf="f.dniIssuedDate.errors.required">Fecha de nacimiento es requerido</div>
                     </div>
-
-
                 </div>
-            </div>
-
-            <div class="form-group form-check">
-                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-                <label for="acceptTerms" class="form-check-label">Acepto Términos y Condiciones</label>
-                <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Por favor lee y acepta las condiciones</div>
+                <div class="form-group form-check">
+                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                    <label for="acceptTerms" class="form-check-label">Acepto Términos y Condiciones</label>
+                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Por favor lee y acepta las condiciones</div>
+                </div>
             </div>
             <div class="text-center">
                 <button class="btn btn-primary mr-1">Registrar</button>

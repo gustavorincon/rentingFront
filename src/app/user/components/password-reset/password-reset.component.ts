@@ -15,10 +15,19 @@ import { IUser } from '../../shared/models/user.model';
 })
 export class PasswordResetComponent implements OnInit {
 
+  submitted = false;
+  codeErrorMessage:string= "";
+  codeSucessMessage:string= "";
+  recoverErrorMessage:string= "";
+  recoverSucessMessage:string= "";
+
+  codeForm = this.fb.group({
+    email: [null, [Validators.required, Validators.email]],
+  });
+
   recoverForm = this.fb.group({
-    email: [null, [Validators.required,Validators.email]],
     verificationCode: [null, [Validators.required]],
-    newPwd: [null, [Validators.required,Validators.minLength(6)]],
+    newPwd: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
     newPwd2: [null, [Validators.required]],
   },{
     validator: MustMatch('newPwd', 'newPwd2')
@@ -39,20 +48,35 @@ export class PasswordResetComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.recoverForm.controls; }
 
+  get fCode(){ return this.codeForm.controls; }
+
   private getRequestForm(): IResetUserPwdRequestDto{
     return new ResetUserPwdRequestDto(
-    this.recoverForm.get(['email']).value,
+    this.codeForm.get(['email'])?.value,
     this.recoverForm.get(['verificationCode'])?.value,
     this.recoverForm.get(['newPwd'])?.value,
     this.recoverForm.get(['newPwd2'])?.value);
   }
 
-  async recoverAccount() {    
+  async recoverAccount() {  
+    this.submitted = true;  
+    if (this.codeForm.invalid) {
+      console.log("recoverAccount form invalid")
+      return;
+    }
     this.codeSent = await this.authService.recoverAccount(this.getRequestForm())
+    this.codeSucessMessage = "Código enviado correctamente!, por favor verifica en tu correo"
   }
 
-  async changePwd() {   
+  async changePwd() {
+    console.log('changePwd()=> ',this.submitted)  
+    this.submitted = true; 
+    if (this.recoverForm.invalid) {
+      return;
+    }
     this.authService.changePwd(this.getRequestForm())
+    this.recoverSucessMessage = "Los cambios fueron exitosos, ve a iniciar sesión (link abajo)"
+
   }
 
 }
