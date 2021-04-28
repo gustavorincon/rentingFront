@@ -1,0 +1,43 @@
+<div class="main">
+    <div class="user">
+        <div class="notification">
+            <svg class="icon icon-bell">
+                <use href="./assets/icons.svg#icon-bell">
+                
+                </use> 
+            </svg>
+            <span class="notification__circle circle-active"></span>
+        </div>
+        <div class="user__info">
+            <div class="circle-avatar">
+                <img src="./assets/images/illustration.jpg" alt="">
+            </div>
+            <div class="user-name">
+                Oelooo
+            </div>
+        </div>
+        <div class="dropdown">
+            <svg class="icon icon-down">
+                <use href="./assets/icons.svg#icon-chevron-small-down">
+                
+                </use> 
+            </svg>
+        </div>
+        
+    </div>
+    <nav class="navigation">
+        <div class="logo">
+            <h3>AlQui</h3>
+        </div>
+        <ul>
+            <li class="nav__item" *ngFor=" let menuItem of menuList">
+                <svg (click)="" class="{{menuItem.icon}}">
+                    <use attr.xlink.href="./assets/icons.svg#{{menuItem.icon}}">
+                    
+                    </use> 
+                </svg>
+                <a href="" class="nav__link">{{menuItem.name}}</a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './landing.component';
 import { LandingRoutingModule } from './landing.routing';
+import { RealStateFilterComponent } from './components/real-state-filter/real-state-filter.component';
 
 
 
@@ -13,7 +14,8 @@ import { LandingRoutingModule } from './landing.routing';
     LandingComponent,
     BodyComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    RealStateFilterComponent,
   ],
   imports: [
     CommonModule,

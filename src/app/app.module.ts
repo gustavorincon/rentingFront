@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 const commonComponents = [AppComponent];
 const commonModules = [];
 
@@ -13,7 +14,7 @@ const commonModules = [];
   declarations: [...commonComponents],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,    
+    AppRoutingModule,
     HttpClientModule,
     NgbModule,
     ...commonModules,
