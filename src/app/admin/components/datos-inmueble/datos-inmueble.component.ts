@@ -19,6 +19,8 @@ export class DatosInmuebleComponent implements OnInit {
   @Input() banosInmueble: OptionInput[];
   @Input() pisosInmueble: OptionInput[];
   @Input() estadosInmuebles: OptionInput[];
+  @Input() ambientes: OptionInput[];
+  @Input() adminOption: OptionInput[];
 
 
   constructor() { }

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { InmuebleFacade } from '../../shared/facades/inmueble.facade';
 import { estadosInmueble } from '../../shared/mocks/estadoInmueble';
+import { estadosSioNo } from '../../shared/mocks/siono';
 import { tipoInmueble } from '../../shared/mocks/tipoInmueble';
 import { tipoOferta } from '../../shared/mocks/tipoOferta';
 import { OptionInput } from '../../shared/model/OptionInput.model';
+import { registrarInmueble } from '../../store/actions/inmuble.actions';
 
 @Component({
   selector: 'app-registro-inmueble',
@@ -20,9 +23,12 @@ export class RegistroInmuebleComponent implements OnInit {
   banosInmueble: OptionInput[] = this.getNumberOption(5);
   pisosInmueble: OptionInput[] = this.getNumberOption(5);
   estadosInmuebles: OptionInput[] = estadosInmueble;
+  numeroAmbientes: OptionInput[] = this.getNumberOption(5);
+  adminIncluida: OptionInput[] = estadosSioNo;
 
   form: FormGroup;
-  constructor( private formBuilder: FormBuilder) { }
+  constructor( private formBuilder: FormBuilder,
+               private inmuebleFacade: InmuebleFacade) { }
 
   ngOnInit(): void {
     this.form = this.createForm();
@@ -73,9 +79,8 @@ export class RegistroInmuebleComponent implements OnInit {
 
   submit(): void{
     this.formSubmitted = true;
-    console.log('formulario');
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.inmuebleFacade.dispatch(registrarInmueble({inmueble: this.form.value.inmueble }));
     }
   }
 }

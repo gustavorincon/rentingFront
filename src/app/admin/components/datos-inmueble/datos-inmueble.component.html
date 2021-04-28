@@ -20,6 +20,10 @@
         </lib-input-select-material-desing>
         <lib-input-select-material-desing (change)="ValidatePisos()" [items]="pisosInmueble" [currentFormControl]="pisosInterioes" label="Numero pisos*">
         </lib-input-select-material-desing>
+        <lib-input-select-material-desing (change)="ValidatePisos()" [items]="ambientes" [currentFormControl]="numeroAmbientes" label="Numero ambientes*">
+        </lib-input-select-material-desing>
+        <lib-input-select-material-desing (change)="ValidatePisos()" [items]="adminOption" [currentFormControl]="adminInmueble" label="Administración incluida*">
+        </lib-input-select-material-desing>
 
         <lib-input-select-material-desing [currentFormControl]="estadoInmueble" [items]="estadosInmuebles" label="Estado inmueble*">
         </lib-input-select-material-desing>

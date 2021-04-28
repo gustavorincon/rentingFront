@@ -12,6 +12,11 @@ import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { RegistroInmuebleComponent } from './containers/registro-inmueble/registro-inmueble.component';
 import { InputsModule } from 'src/external-apis/form-components/src/lib/inputs/inputs.module';
 import { errorControls } from './shared/model/const-errors';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from '../store/reducers/app.reducers';
+import { effectsArray } from './store/effects/app.effects';
 
 
 
@@ -26,6 +31,9 @@ import { errorControls } from './shared/model/const-errors';
     InputsModule.forRoot(errorControls),
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forFeature('admin', reducers),
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forFeature(effectsArray),
     HttpClientModule,
     NgbModule,
     ToastrModule.forRoot()

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './store/reducers/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -22,6 +23,7 @@ const commonModules = [];
     NgbModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot(),
     ...commonModules,
   ],
   providers: [],
