@@ -1,4 +1,4 @@
-import { Menu } from '../models/Menu';
+import { Menu } from '../shared/models/menu.model';
 
 export const menuList: Menu[] = [
   {

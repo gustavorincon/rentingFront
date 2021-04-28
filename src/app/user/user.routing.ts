@@ -8,7 +8,7 @@ import { PasswordResetComponent } from './components/password-reset/password-res
 import { AuthGuard } from './services/auth.guard';
 import { UserClientInfoComponent } from './components/user-client-info/user-client-info.component';
 export const USER_ROUTES: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'login' },   
+    { path: '', pathMatch: 'full', redirectTo: 'login' },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'reset-password', component: PasswordResetComponent },
