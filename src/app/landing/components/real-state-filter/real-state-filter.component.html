@@ -1,43 +1,79 @@
-<div class="main">
-    <div class="user">
-        <div class="notification">
-            <svg class="icon icon-bell">
-                <use href="./assets/icons.svg#icon-bell">
+<app-nav-bar></app-nav-bar>  
+<div class="container main-container">
+    <div class="row content" >
+      
+            <div class="col-sm-4 col-md-2 col-lg-3 col-xl-3 scroll search-left" >
+                <h4>Filtros:</h4>
                 
-                </use> 
-            </svg>
-            <span class="notification__circle circle-active"></span>
-        </div>
-        <div class="user__info">
-            <div class="circle-avatar">
-                <img src="./assets/images/illustration.jpg" alt="">
+                <div>
+                    filtro 2
+                </div>
+                <div>
+                    filtro 3
+                </div>
+                <div>
+                    filtro 4
+                </div>
             </div>
-            <div class="user-name">
-                Oelooo
-            </div>
-        </div>
-        <div class="dropdown">
-            <svg class="icon icon-down">
-                <use href="./assets/icons.svg#icon-chevron-small-down">
-                
-                </use> 
-            </svg>
-        </div>
+       
+   
+        <div class="col-sm-8 col-md-10 col-lg-9 col-xl-9 scroll" >
+            <h4>Se han encontrado xxX viviendas en Med e itagui:</h4>
+            
+            <div class="container">
+                <div class="row">
+                  <div class='col-sm-12 col-md-6'>
+                    <div class="card" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class='col-sm-12 col-md-6'>
+                    <div class="card" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class='col-sm-12 col-md-6'>
+                    <div class="card" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class='col-sm-12 col-md-6'>
+                    <div class="card" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class='col-sm-12 col-md-6'>
+                    <div class="card" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class='col-sm-12 col-md-6'>
+                    <div class="card" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        
+       </div>
         
     </div>
-    <nav class="navigation">
-        <div class="logo">
-            <h3>AlQui</h3>
-        </div>
-        <ul>
-            <li class="nav__item" *ngFor=" let menuItem of menuList">
-                <svg  class="icon {{ menu.icon }}">    
-                    <use attr.xlink.href="./assets/icons.svg#{{menuItem.icon}}">
-                    
-                    </use> 
-                </svg>
-                <a href="" class="nav__link">{{menuItem.name}}</a>
-            </li>
-        </ul>
-    </nav>
 </div>

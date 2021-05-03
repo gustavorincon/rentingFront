@@ -5,8 +5,28 @@ body {
     font-size: 1rem;
 }
 
+
 .product-intro {
     color: #cac7c7;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+.search-left {
+    overflow: auto;
+    background: rgb(243, 241, 242);
+}
+
+
+.content {
+    height: 100%;
+}
+
+
+.main-container{
+    margin-top: 70px;
 }
 
 .header {
@@ -30,15 +50,24 @@ body {
 }
 
 .navg a {
-    color: #f4f4f4!important;
-    font-size: 23px;
-    padding: 10px 25px;
-    text-align: center;
-    text-transform: uppercase;
+    color: #243b2d !important;
+    font-size: 15px !important;
+    padding: 10px 15px;
+    text-align: left;
+    /*text-transform: uppercase;*/
 }
 
 .navg a:hover {
-    background-color: #c10000a2;
+    background-color: #c10000a2 !important;
+}
+
+.navg-brand {
+    /*background: transparent !important;*/
+    transition: 0.57s ease;
+    color: #243b2d !important;
+    font-size: 23px;
+    padding: 10px 25px;
+    text-align: center;
 }
 
 .text-header {

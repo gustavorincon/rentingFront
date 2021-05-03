@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './landing.component';
 import { LandingRoutingModule } from './landing.routing';
 import { RealStateFilterComponent } from './components/real-state-filter/real-state-filter.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 
 
 
@@ -16,6 +18,7 @@ import { RealStateFilterComponent } from './components/real-state-filter/real-st
     FooterComponent,
     HeaderComponent,
     RealStateFilterComponent,
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
