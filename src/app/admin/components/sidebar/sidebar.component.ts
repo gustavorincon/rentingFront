@@ -8,6 +8,8 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/renta/administrador/registro-inmueble', title: 'Registrar inmueble',  icon: 'design_app', class: '' },
+    { path: '/renta/administrador/mis-inmueble', title: 'Mis inmueble',  icon: 'design_app', class: '' },
+    { path: '/renta/administrador/interesados', title: 'Interesados',  icon: 'design_app', class: '' },
     { path: '/renta/administrador/dashboard', title: 'Dashboard',  icon: 'design_app', class: '' },
     { path: '/renta/administrador/table-list', title: 'Table List',  icon: 'design_bullet-list-67', class: '' },
     { path: '/renta/administrador/typography', title: 'Typography',  icon: 'text_caps-small', class: '' },
