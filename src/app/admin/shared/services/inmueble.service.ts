@@ -20,4 +20,21 @@ export class InmuebleService {
       request
     );
   }
+  getlistaInmuebles(
+    request: Inmueble
+  ): Observable<Inmueble> {
+    return this.httpClient.post<Inmueble>(
+      `/cita/disponibilidad`,
+      request
+    );
+  }
+
+  getlistainteresadosInmuebles(
+    request: Inmueble
+  ): Observable<Inmueble> {
+    return this.httpClient.post<Inmueble>(
+      `/cita/disponibilidad`,
+      request
+    );
+  }
 }

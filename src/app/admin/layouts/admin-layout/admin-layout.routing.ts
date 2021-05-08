@@ -1,5 +1,4 @@
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
@@ -24,10 +23,6 @@ export const AdminLayoutRoutes: Routes = [
         {
           path: 'interesados',
           component: InteresadosComponent,
-        },
-        {
-          path: 'dashboard',
-          component: DashboardComponent,
         },
         {
           path: 'table-list',

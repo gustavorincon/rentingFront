@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-layout.routing';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { ChartsModule } from 'ng2-charts';
@@ -18,7 +17,6 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     NgbModule,
   ],
   declarations: [
-    DashboardComponent,
     TableListComponent,
     UpgradeComponent,
     TypographyComponent
