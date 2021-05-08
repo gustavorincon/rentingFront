@@ -1,9 +1,9 @@
 <header class="header">
    <app-nav-bar></app-nav-bar> 
    <div class="container main-container">
-      <div class="row">
+      <div class="row content">
 
-         <div class="col-sm-8">
+         <div class="col-12">
             <br>
             <br>
             <br>
@@ -14,28 +14,35 @@
               Nunca había sido tan fácil
             </h2>
           </div>
+
+          <div class="col-12">
+             <div class="container-fluid text-center">
+               <form>
+                  <div class="container" >
+                     <div class="row ">
+                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 " style="border: 1px solid #ffffff;" >
+                           <input type="input" formControlName="city" id="city" class="input-header" name="city" placeholder="Ciudad" >
+                        </div>
+                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 justify-content" style="border: 1px solid #ffffff;" >
+                           <input type="input" formControlName="rsType" id="rsType" class="input-header" name="rsType" placeholder="Tipo de inmueble">
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 " style="border: 1px solid #ffffff;" >
+                           <input type="input" formControlName="fromPrice" id="fromPrice" class="input-header" name="fromPrice" placeholder="Precio desde" > 
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 " style="border: 1px solid #ffffff;" >
+                           <button  class="btn-header"><span>Buscar</span></button>
+                        </div>
+                     </div>
+                     
+                  </div> 
+               </form>
+
+             </div>
+            
+
+          </div>
       
-            <form>
-               <div class="row">
-                  <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 " >
-                     <input type="input" formControlName="city" id="city" class="fadeIn second" name="city" placeholder="Ciudad" >
-                  </div>
-                  <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 " >
-                     <input type="input" formControlName="rsType" id="rsType" class="fadeIn third" name="rsType" placeholder="Tipo de inmueble">
-                  </div>
-                  <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 " >
-                     <input type="input" formControlName="fromPrice" id="fromPrice" class="fadeIn second" name="fromPrice" placeholder="Desde" > 
-                  </div>
-                  <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 " >
-                     <input type="input" formControlName="toPrice" id="toPrice" class="fadeIn third" name="toPrice" placeholder="Hasta">
-                  </div>
-                  <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 " >
-                     <button class="btn btn-primary mr-1">Ingresar</button>
-                  </div>
-                  <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 " >
-                  </div>
-               </div> 
-            </form>
+            
       </div>
    </div>
 </header>
