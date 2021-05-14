@@ -20,18 +20,19 @@
                <form>
                   <div class="container" >
                      <div class="row ">
-                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 " style="border: 1px solid #ffffff;" >
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
                            <input type="input" formControlName="city" id="city" class="input-header" name="city" placeholder="Ciudad" >
                         </div>
-                        <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 justify-content" style="border: 1px solid #ffffff;" >
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 justify-content"  >
                            <input type="input" formControlName="rsType" id="rsType" class="input-header" name="rsType" placeholder="Tipo de inmueble">
                         </div>
-                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 " style="border: 1px solid #ffffff;" >
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
                            <input type="input" formControlName="fromPrice" id="fromPrice" class="input-header" name="fromPrice" placeholder="Precio desde" > 
                         </div>
-                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 " style="border: 1px solid #ffffff;" >
-                           <button  class="btn-header"><span>Buscar</span></button>
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
+                           <button (click)="buscar()" class="btn-header"><span>Buscar</span></button>
                         </div>
+                       
                      </div>
                      
                   </div> 

@@ -13,6 +13,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  buscar(): void {
+    this.router.navigate(['renta/inicio/busqueda']);
+  }
+
   
 
 }

@@ -14,7 +14,8 @@ export class NavBarComponent implements OnInit {
   }
 
   compra(): void {
-    this.router.navigate(['/tienda/comprar']);
+    this.router.navigate(['/renta/usuario/login']);
   }
+
 
 }
