@@ -7,6 +7,8 @@ import { LandingComponent } from './landing.component';
 import { LandingRoutingModule } from './landing.routing';
 import { RealStateFilterComponent } from './components/real-state-filter/real-state-filter.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { RealStateDetailComponent } from './components/real-state-detail/real-state-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,12 +21,17 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     HeaderComponent,
     RealStateFilterComponent,
     NavBarComponent,
+    RealStateDetailComponent,
   ],
   imports: [
     CommonModule,
+    NgbModule,
     LandingRoutingModule
   ],
-  bootstrap : [LandingComponent]
+  exports: [
+    RealStateDetailComponent
+  ],
+  bootstrap : [LandingComponent, RealStateDetailComponent]
 })
 export class LandingModule {
 

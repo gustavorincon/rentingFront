@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing.component';
 import { RealStateFilterComponent } from './components/real-state-filter/real-state-filter.component';
+import { RealStateDetailComponent } from './components/real-state-detail/real-state-detail.component';
 
 
 export const LANDING_ROUTES: Routes = [
@@ -10,6 +11,7 @@ export const LANDING_ROUTES: Routes = [
         component: LandingComponent
     },
     { path: 'busqueda', component: RealStateFilterComponent },
+    { path: 'detalle', component: RealStateDetailComponent },
 ];
 
 @NgModule({
