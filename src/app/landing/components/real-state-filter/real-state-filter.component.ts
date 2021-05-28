@@ -19,4 +19,8 @@ export class RealStateFilterComponent implements OnInit {
     this.router.navigate(['renta/inicio/detalle']);
   }
 
+  contactar(): void {
+    this.router.navigate(['/renta/usuario/login']);
+  }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-real-state-detail',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class RealStateDetailComponent implements OnInit {
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+
+  contactar(): void {
+    this.router.navigate(['/renta/usuario/login']);
   }
 
 }

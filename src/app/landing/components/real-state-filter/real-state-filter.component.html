@@ -23,7 +23,10 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <input type="input"  class="input-search"  id="city"  name="city" placeholder="Tipo" >
+                  <select class="input-search" id="exampleFormControlSelect1">
+                    <option>Apartamento</option>
+                    <option>Casa</option>
+                  </select>
                 </div>
               </div>
               <div class="row search-row-lable">
@@ -86,7 +89,9 @@
                 <div class="card mb-3" >
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <a (click)="verDetalle()" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      </a>
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
@@ -106,7 +111,7 @@
                             <img src="assets/icons/parking-area.png">1
                           </div>
                         </div>
-                        <a (click)="verDetalle()" class="btn btn-primary">Ver detalle</a>
+                        <a (click)="contactar()" class="btn btn-primary">Me interesa</a>
                       </div>
                     </div>
                   </div>
@@ -116,7 +121,9 @@
                 <div class="card " >
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <a (click)="verDetalle()" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      </a>
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
@@ -137,7 +144,7 @@
                             <img src="assets/icons/parking-area.png">1
                           </div>
                         </div>
-                        <a (click)="verDetalle()" class="btn btn-primary">Ver detalle</a>
+                        <a (click)="contactar()" class="btn btn-primary">Me interesa</a>
                       </div>
                     </div>
                   </div>
@@ -147,7 +154,9 @@
                 <div class="card mb-3" >
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <a (click)="verDetalle()" >
+                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      </a>
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
@@ -167,7 +176,7 @@
                             <img src="assets/icons/parking-area.png">1
                           </div>
                         </div>
-                        <a (click)="verDetalle()" class="btn btn-primary">Ver detalle</a>
+                        <a (click)="contactar()" class="btn btn-primary">Me interesa</a>
                       </div>
                     </div>
                   </div>
