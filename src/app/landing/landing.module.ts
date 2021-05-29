@@ -9,7 +9,7 @@ import { RealStateFilterComponent } from './components/real-state-filter/real-st
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RealStateDetailComponent } from './components/real-state-detail/real-state-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -26,6 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     NgbModule,
+    GoogleMapsModule,
     LandingRoutingModule
   ],
   exports: [

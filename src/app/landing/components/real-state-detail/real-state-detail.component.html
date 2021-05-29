@@ -3,7 +3,9 @@
     <div class="container ">
         <div class="row" >
             <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                <ngb-carousel *ngIf="images">
+              <div class="row" >
+                <div class="col-12" >
+                  <ngb-carousel *ngIf="images">
                     <ng-template ngbSlide>
                       <div class="picsum-img-wrapper">
                         <img [src]="images[0]" alt="Random first slide">
@@ -32,10 +34,28 @@
                       </div>
                     </ng-template>
                   </ngb-carousel>
+                </div>
+              </div>
+              <div class="row" >
+                <div class="col-12" >
+                  <div class="row ">
+                    <div class="col-md-12 mx-auto">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <div  style="width:100%;height:50%">
+                                  <google-map width="100%"
+                                              height="200px">
+                                  </google-map>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  
+                </div>
+              </div>
             </div>
-            
             <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4" >
-              <div class="container">
                 <div class="row">
                   <div class='col-12'>
                     <div class="card mb-3" >
@@ -81,13 +101,9 @@
                     </div>
                   </div>
                 </div>
-            </div>
-          </div>
             
+          </div>
         </div>
-    </div>
-    
-
-      
+    </div> 
 </div>
 <app-footer></app-footer>

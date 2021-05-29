@@ -7,19 +7,30 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navg collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <div class="navg collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Otros
                     </a>
-                    <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">El Roblal</a>
                         <a class="dropdown-item" href="#">Tierra Fría</a>
                         <a class="dropdown-item" href="#">Tres Esquinas</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </li>
                 <li class="nav-item">
                     <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">¿Como funciona?</a>
                 </li>
@@ -27,12 +38,12 @@
                     <a class="nav-link" href="#">Blog<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" (click)="compra()">Ingresar<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" (click)="compra()">Publicar Inmueble<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
             <button (click)="compra()" class="btn btn-outline-success my-2 my-sm-0">
-                Publicar inmueble
+                Ingresar
             </button>
 
 
