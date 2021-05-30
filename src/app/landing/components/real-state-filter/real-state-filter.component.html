@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>  
 <div class="container main-container">
     <div class="row" >      
-      <div class="col-sm-4 col-md-3 search-left" >
+      <div class="col-sm-12 col-md-4 search-left" >
           <div class="row ">
             <div class="col">
               <div class="row search-row-lable">
@@ -81,68 +81,39 @@
           </div>
       </div>
        
-      <div class="col-sm-8 col-md-9 scroll" >
+      <div class="col-sm-12 col-md-8 scroll" >
           <span>Se han encontrado las siguientes viviendas en Med e itagui para alquiler:</span>
           <div class="container">
             <div class="row">
               <div class='col-12'>
                 <div class="card mb-3" >
                   <div class="row no-gutters">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
                     <div class="col-md-4">
-                      <a class="cursor-pointer" (click)="verDetalle()" >
-                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
-                      </a>
+                      <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <div class="icon-over-img ">
+                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                      </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 card text-right">
                       <div class="card-body">
                         <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
                         <div class="row" >
-                          <div class="col">
-                            <img src="assets/icons/area.png">65
+                          <div class="col ">
+                            <img class=" icon-filter" src="assets/icons/area.png">65
+                          </div>
+                          <div class="col ">
+                            <img class="icon-filter" src="assets/icons/room.png">3
                           </div>
                           <div class="col">
-                            <img src="assets/icons/room.png">3
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
                           </div>
                           <div class="col">
-                            <img src="assets/icons/bathroom.png">2
-                          </div>
-                          <div class="col">
-                            <img src="assets/icons/parking-area.png">1
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class='col-12'>
-                <div class="card " >
-                  <div class="row no-gutters">
-                    <div class="col-md-4">
-                      <a  class="cursor-pointer" (click)="verDetalle()" >
-                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
-                      </a>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Apartamento en Medellin por $980.000</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
-  
-                        <div class="row" >
-                          <div class="col">
-                            <img src="assets/icons/area.png">65
-                          </div>
-                          <div class="col">
-                            <img src="assets/icons/room.png">3
-                          </div>
-                          <div class="col">
-                            <img src="assets/icons/bathroom.png">2
-                          </div>
-                          <div class="col">
-                            <img src="assets/icons/parking-area.png">1
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
                           </div>
                         </div>
+                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
                       </div>
                     </div>
                   </div>
@@ -151,29 +122,66 @@
               <div class='col-12'>
                 <div class="card mb-3" >
                   <div class="row no-gutters">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
                     <div class="col-md-4">
-                      <a class="cursor-pointer" (click)="verDetalle()" >
-                        <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
-                      </a>
+                      <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <div class="icon-over-img ">
+                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                      </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 card text-right">
                       <div class="card-body">
                         <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
                         <div class="row" >
                           <div class="col">
-                            <img src="assets/icons/area.png">65
+                            <img class=" icon-filter"  src="assets/icons/area.png">65
                           </div>
                           <div class="col">
-                            <img src="assets/icons/room.png">3
+                            <img class=" icon-filter"  src="assets/icons/room.png">3
                           </div>
                           <div class="col">
-                            <img src="assets/icons/bathroom.png">2
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
                           </div>
                           <div class="col">
-                            <img src="assets/icons/parking-area.png">1
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
                           </div>
                         </div>
+                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='col-12'>
+                <div class="card mb-3" >
+                  <div class="row no-gutters">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+                    <div class="col-md-4">
+                      <img class="card-img-top" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <div class="icon-over-img ">
+                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                      </div>
+                    </div>
+                    <div class="col-md-8 card text-right">
+                      <div class="card-body">
+                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
+                        <div class="row" >
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/area.png">65
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/room.png">3
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
+                          </div>
+                        </div>
+                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
                       </div>
                     </div>
                   </div>
