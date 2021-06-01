@@ -181,6 +181,36 @@ body {
     right: 0;
 }
 
+.btn-rounded {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #494488a2;
+    padding: 10px;
+  
+}
+
+.btn-rounded2 {
+    padding: 0.9rem 1.1rem 0.9rem 1.1rem;
+    background-color: #FFF;    
+    color: #4d8568;
+    border-color: #bdbcbc;
+    border-radius: 20px;
+    border-width: 0.1rem;
+  
+}
+
+.counter-lable {
+    font-family: Silka;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 50px;
+    width: 80px;
+    display: inline-block;
+    text-align: justify;
+}
+
 .howwork ul {
     padding-left: 2rem;
     list-style: none;
