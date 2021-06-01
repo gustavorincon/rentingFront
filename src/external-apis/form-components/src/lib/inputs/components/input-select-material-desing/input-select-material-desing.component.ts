@@ -10,7 +10,7 @@ import { FormComponentsService } from '../../../form-components.service';
 export class InputSelectMaterialDesingComponent {
   @Input() currentFormControl: FormGroup;
   @Input() isFormSubmit: boolean;
-  @Input() items: any[];
+  @Input() items?: any[];
   @Input() label: string;
   @Input() displayError = true;
   @Input() id?: string;
