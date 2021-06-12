@@ -1,9 +1,15 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+const awsConfig = {
+  url: 'https://xxx-xx.s3.amazonaws.com',
+  bucketUrl: 'https://xxx-xx.s3.amazonaws.com'
+};
 
 export const environment = {
-  production: false
+  production: false,
+  domain: 'http://localhost:4200',
+  aws: awsConfig
 };
 
 /*

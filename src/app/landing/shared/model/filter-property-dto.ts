@@ -1,4 +1,4 @@
-export interface IProperty{
+export interface IFilterPropertyDto{
     code: string;
     registrationNumber: string;
     country: string;
@@ -13,18 +13,9 @@ export interface IProperty{
     parkings: number;
     type: string;
     furnished: boolean;
-    images: IPropertyImmage[];
-    createdDate: Date;
 }
 
-export interface IPropertyImmage{
-    url: string;
-    description: string;
-    type: string;
-    state: string;
-}
-
-export class Property implements IProperty{
+export class FilterPropertyDto implements IFilterPropertyDto{
     constructor(
         public code: string,
         public registrationNumber: string,
@@ -39,8 +30,6 @@ export class Property implements IProperty{
         public bathrooms: number,
         public parkings: number,
         public type: string,
-        public furnished: boolean,
-        public images: IPropertyImmage[],
-        public createdDate: Date,
+        public furnished: boolean
     ){}
 }
