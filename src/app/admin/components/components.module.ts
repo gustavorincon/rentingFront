@@ -10,6 +10,7 @@ import { DatosInmuebleComponent } from './datos-inmueble/datos-inmueble.componen
 import { InputsModule } from 'src/external-apis/form-components/src/public-api';
 import { errorControls } from '../shared/model/const-errors';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SubtitilosFormulariosComponent } from './subtitilos-formularios/subtitilos-formularios.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    DatosInmuebleComponent
+    DatosInmuebleComponent,
+    SubtitilosFormulariosComponent
   ],
   exports: [
     FooterComponent,

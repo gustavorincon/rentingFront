@@ -1,9 +1,6 @@
 <div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>DATOS DEL AVISO</h3>
-        </div>
-    </div>
+    <app-subtitilos-formularios [titulo]="'DATOS DEL AVISO'"></app-subtitilos-formularios>
+
     <div class="row">
         <div class="col-12 col-lg-6">
             <lib-input-select-material-desing (change)="ValidateTipoOfertas()" [items]="tiposOferta" [currentFormControl]="tipoOferta" label="Tipo oferta*">
@@ -15,11 +12,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>UBICACIÓN DEL INMUEBLE</h3>
-        </div>
-    </div>
+    <app-subtitilos-formularios [titulo]="'UBICACIÓN DEL INMUEBLE'"></app-subtitilos-formularios>
+
     <div class="row">
         <div class="col-12 col-lg-6">
             <lib-input-text-material-desing label="Ciudad*" [maxLength]="40" [currentFormControl]="ciudadInmueble"></lib-input-text-material-desing>
@@ -32,11 +26,8 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>DESCRIPCIÓN DEL INMUEBLE</h3>
-        </div>
-    </div>
+    <app-subtitilos-formularios [titulo]="'DESCRIPCIÓN DEL INMUEBLE'"></app-subtitilos-formularios>
+
     <div class="row">
         <div class="col-12 col-lg-6">
             <lib-input-text-material-desing label="precio*" [maxLength]="40" [currentFormControl]="precioInmueble"></lib-input-text-material-desing>
@@ -73,21 +64,16 @@
             </lib-input-select-material-desing>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>CARACTERÍSTICAS</h3>
-        </div>
-    </div>
+
+    <app-subtitilos-formularios [titulo]="'CARACTERÍSTICAS'"></app-subtitilos-formularios>
+
     <div class="row">
         <div class="col-12">
             <lib-input-text-material-desing label="Ciudad*" [maxLength]="40" [currentFormControl]="ciudadInmueble"></lib-input-text-material-desing>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 text-center">
-            <h3>FOTOGRAFÍAS DEL ANUNCIO.</h3>
-        </div>
-    </div>
+    <app-subtitilos-formularios [titulo]="'FOTOGRAFÍAS DEL ANUNCIO'"></app-subtitilos-formularios>
+
     <div class="row">
         <div class="col-12">
             <lib-input-text-material-desing label="Imagenes*" [type]="'file'" [currentFormControl]="imagenesInmueble"></lib-input-text-material-desing>
