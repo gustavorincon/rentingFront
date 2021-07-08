@@ -1,7 +1,15 @@
 <div class="container">
-    <form [formGroup]="form" (ngSubmit)="submit()">
-        <app-datos-inmueble [submitted]="formSubmitted" [estadosInmuebles]="estadosInmuebles" [estratosInmueble]="estratosInmueble" [habitacionesInmueble]="habitacionesInmueble" [banosInmueble]="banosInmueble" [pisosInmueble]="pisosInmueble" [tiposOferta]="tipoOfertas"
-            [tiposInmuebles]="tipoInmuebles" [ambientes]="numeroAmbientes" [adminOption]="adminIncluida" [inmuebleFormGroup]="getFormGroup('inmueble')">
-        </app-datos-inmueble>
-    </form>
+    <div class="row">
+        <div class="main-container mx-auto p-0">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <app-datos-inmueble [submitted]="formSubmitted" [estadosInmuebles]="estadosInmuebles" [estratosInmueble]="estratosInmueble" [habitacionesInmueble]="habitacionesInmueble" [banosInmueble]="banosInmueble" [pisosInmueble]="pisosInmueble" [tiposOferta]="tipoOfertas"
+                    [tiposInmuebles]="tipoInmuebles" [ambientes]="numeroAmbientes" [adminOption]="adminIncluida" [inmuebleFormGroup]="getFormGroup('inmueble')">
+                </app-datos-inmueble>
+
+                <lib-button buttonType="submit" variant="primary">
+                    Guardar
+                </lib-button>
+            </form>
+        </div>
+    </div>
 </div>

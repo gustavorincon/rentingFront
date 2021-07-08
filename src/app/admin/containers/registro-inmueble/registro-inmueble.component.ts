@@ -56,6 +56,7 @@ export class RegistroInmuebleComponent implements OnInit {
       numeroBanosInmueble: [null, Validators.required],
       pisosInterioresInmueble: [null, Validators.required],
       estadoInmueble: [null, Validators.required],
+      imagenesInmueble: [null, Validators.required]
     });
   }
 

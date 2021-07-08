@@ -12,5 +12,6 @@ export enum FormularioInmueble {
   NUMERO_HABITACIONES = 'numeroHabitacionesInmueble',
   NUMERO_BANOS = 'numeroBanosInmueble',
   PISOS_INTERIORES = 'pisosInterioresInmueble',
-  ESTADO_INMUEBLE = 'estadoInmueble'
+  ESTADO_INMUEBLE = 'estadoInmueble',
+  IMAGENES_INMUEBLE = 'imagenesInmueble'
 }
