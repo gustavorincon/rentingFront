@@ -6,13 +6,13 @@ export interface IFilterPropertyDto{
     city: string;
     description: string;
     state: string;
-    rentingPrice: number;
-    area: number;
-    rooms: number;
-    bathrooms: number;
-    parkings: number;
+    rentingPrice: string;
+    area: string;
+    rooms: string;
+    bathrooms: string;
+    parkings: string;
     type: string;
-    furnished: boolean;
+    furnished: string;
 }
 
 export class FilterPropertyDto implements IFilterPropertyDto{
@@ -24,12 +24,12 @@ export class FilterPropertyDto implements IFilterPropertyDto{
         public city: string,
         public description: string,
         public state: string,
-        public rentingPrice: number,
-        public area: number,
-        public rooms: number,
-        public bathrooms: number,
-        public parkings: number,
+        public rentingPrice: string,
+        public area: string,
+        public rooms: string,
+        public bathrooms: string,
+        public parkings: string,
         public type: string,
-        public furnished: boolean
+        public furnished: string
     ){}
 }

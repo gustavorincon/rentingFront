@@ -17,23 +17,26 @@
 
           <div class="col-12">
              <div class="container-fluid text-center">
-               <form>
+               <form [formGroup]="filterForm" (ngSubmit)="setByFilters()">
                   <div class="container" >
                      <div class="row ">
-                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
-                           <input type="input" formControlName="city" id="city" class="input-search" name="city" placeholder="Ciudad" >
+                        <div  class="col-sm-12 col-md-3 col-lg-3 col-xl-3 " >
+                           <input type="text" formControlName="city" class="input-search" (keyup)="getLocationId($event)" id="locationId" list="locationsIds" placeholder="Ciudad"  />
+                           <datalist id="locationsIds">
+                              <option *ngFor="let location of locations" >{{location.municipio}}-{{location.departamento}}</option>
+                           </datalist>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 justify-content"  >
                            <select formControlName="rsType" class="input-search" id="rsType" placeholder="Tipo de inmueble">
-                              <option>Apartamento</option>
-                              <option>Casa</option>
+                              <option value="apartamento">Apartamento</option>
+                              <option value="casa">Casa</option>
                             </select>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
                            <input type="input" formControlName="fromPrice" id="fromPrice" class="input-search" name="fromPrice" placeholder="Precio desde" > 
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
-                           <button (click)="buscar()" class="btn-header"><span>Buscar</span></button>
+                           <button class="btn-header"><span>Buscar</span></button>
                         </div>
                      </div>
                   </div> 

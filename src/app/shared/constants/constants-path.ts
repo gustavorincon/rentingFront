@@ -1,6 +1,7 @@
 import { environment } from '../../../environments/environment';
 
 export class PathConstantes {
-    // Comunes
-    private static ASSET_API = `assets`;
+    // Commons
+    public static ASSET_API = `${environment.endpoint}/assets`;
+    public static LOCATIONS_API = `${environment.endpoint}/locations`;
 }

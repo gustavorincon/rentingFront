@@ -10,6 +10,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RealStateDetailComponent } from './components/real-state-detail/real-state-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { RentingSharedModule } from '../shared/shared.module';
 
 
 
@@ -25,6 +26,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
   ],
   imports: [
     CommonModule,
+    RentingSharedModule,
     NgbModule,
     GoogleMapsModule,
     LandingRoutingModule

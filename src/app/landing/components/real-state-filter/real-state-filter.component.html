@@ -1,9 +1,11 @@
-<app-nav-bar></app-nav-bar>  
+<app-nav-bar></app-nav-bar> 
+
 <div class="container main-container">
     <div class="row" >      
       <div class="col-sm-12 col-md-4 search-left" >
           <div class="row ">
             <div class="col">
+              <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
               <div class="row search-row-lable">
                 <div class="col-12">
                   <span>Ciudad</span>
@@ -12,8 +14,10 @@
               
               <div class="row">
                 <div class="col-12">
-                  <input type="input"  class="input-search" id="city"  name="city" placeholder="Ciudad" >
-
+                <input type="text" formControlName="city" class="input-search" (keyup)="getLocationId($event)" id="locationId" list="locationsIds" placeholder="Ciudad"  />
+                  <datalist id="locationsIds">
+                    <option *ngFor="let location of locations">{{location.municipio}}-{{location.departamento}}</option>
+                  </datalist>
                 </div>
               </div>  
               <div class="row search-row-lable"> 
@@ -24,9 +28,9 @@
               
               <div class="row">
                 <div class="col-12">
-                  <select class="input-search" id="exampleFormControlSelect1">
-                    <option>Apartamento</option>
-                    <option>Casa</option>
+                  <select class="input-search" formControlName="rsType" id="rsType">
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
                   </select>
                 </div>
               </div>
@@ -38,10 +42,10 @@
               </div>
               <div class="row ">
                 <div class="col-12">
-                  <input type="input"  class="input-search"  id="city"  name="city" placeholder="Desde" >
+                  <input type="number" formControlName="fromArea" id="fromArea"  class="input-search" name="fromArea" placeholder="Desde" >
                 </div >
                 <div class="col-12">
-                  <input type="input"  class="input-search"  id="city"  name="city" placeholder="Hasta" >
+                  <input type="number" formControlName="toArea" id="toArea"  class="input-search" name="toArea" placeholder="Hasta" >
                 </div>
               </div>
 
@@ -52,10 +56,10 @@
               </div>
               <div class="row ">
                 <div class="col-12">
-                  <input type="text" class="input-search" placeholder="Desde">
+                  <input type="number" formControlName="fromPrice" id="fromPrice"  class="input-search" name="fromPrice" placeholder="Desde" >
                 </div>
                 <div class="col-12">
-                  <input type="text" class="input-search" placeholder="Hasta">
+                  <input type="number" formControlName="toPrice" id="toPrice"  class="input-search" name="toPrice" placeholder="Hasta" >
                 </div>
               </div>
 
@@ -64,13 +68,13 @@
                   <span>Habitaciones</span>
                 </div>
                 <div class="col-3 ">
-                  <button type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
+                  <button (click)="decrementRooms()" type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
                 </div>
                 <div class="col-3 counter-lable">
-                  <span> 1</span>
+                  <span> {{roomCounter}}</span>
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
+                  <button (click)="incrementRooms()" type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
                 </div>
               </div>
               
@@ -79,13 +83,13 @@
                   <span>Baños</span>
                 </div>
                 <div class="col-3 ">
-                  <button type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
+                  <button (click)="decrementBathrooms()" type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
                 </div>
                 <div class="col-3 counter-lable">
-                  <span> 1</span>
+                  <span> {{bathroomCounter}} </span>
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
+                  <button (click)="incrementBathrooms()" type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
                 </div>
               </div>
 
@@ -94,17 +98,15 @@
                   <span>Parqueaderos</span>
                 </div>
                 <div class="col-3 ">
-                  <button type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
+                  <button (click)="decrementParkings()" type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
                 </div>
                 <div class="col-3 counter-lable">
-                  <span> 1</span>
+                  <span> {{parkingCounter}}</span>
                 </div>
                 <div class="col-3">
-                  <button type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
+                  <button (click)="incrementParkings()" type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
                 </div>
               </div>
-
-              
               <div class="row search-row-lable">
                 <div class="col-12">
                   <span>¿Amoblado?</span>
@@ -112,127 +114,56 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Si</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">No</label>
-                  </div>
+                  <select formControlName="furnished" class="input-search" id="rsType">
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                  </select>
                 </div>               
               </div>
              
               <div class="row"  >
                 <div class="col-12">
-                  <button  class="btn-header"><span>Aplicar Filtros</span></button>
+                  <button  class="btn-header" ><span>Aplicar Filtros</span></button>
                 </div>              
               </div>
+            </form> 
             </div>           
           </div>
       </div>
        
       <div class="col-sm-12 col-md-8 scroll" >
-          <span>Se han encontrado las siguientes viviendas en Med e itagui para alquiler:</span>
+          <span>Se han encontrado las siguientes viviendas en para alquiler:</span>
           <div class="container">
             <div class="row">
-              <div class='col-12'>
+              <div *ngFor="let asset of availableAssets" class='col-12'>
                 <div class="card mb-3" >
                   <div class="row no-gutters">
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
                     <div class="col-md-4">
-                      <img (click)="verDetalle()" class="card-img-top cursor-pointer" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <img (click)="assetDetail(asset)" class="card-img-top cursor-pointer" src="{{asset.images[0].url}}" alt="Card image cap">
                       <div class="icon-over-img ">
-                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                        <a (click)="assetDetail(asset)" ><i class="fas fa-plus"></i>Ver más</a>
                       </div>
                     </div>
                     <div class="col-md-8 card text-right">
                       <div class="card-body">
-                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
+                        <h5 class="card-title">Apartamento en {{asset.city}} por {{asset.rentingPrice}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Código #{{asset.code}}</h6>
                         <div class="row" >
                           <div class="col ">
-                            <img class=" icon-filter" src="assets/icons/area.png">65
+                            <img class=" icon-filter" src="assets/icons/area.png">{{asset.area}} 
                           </div>
                           <div class="col ">
-                            <img class="icon-filter" src="assets/icons/room.png">3
+                            <img class="icon-filter" src="assets/icons/room.png">{{asset.rooms}} 
                           </div>
                           <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">{{asset.bathrooms}}
                           </div>
                           <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">{{asset.parkings}}
                           </div>
                         </div>
-                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class='col-12'>
-                <div class="card mb-3" >
-                  <div class="row no-gutters">
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-                    <div class="col-md-4">
-                      <img (click)="verDetalle()" class="card-img-top cursor-pointer" src="assets/img/apt1.jpg" alt="Card image cap">
-                      <div class="icon-over-img ">
-                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
-                      </div>
-                    </div>
-                    <div class="col-md-8 card text-right">
-                      <div class="card-body">
-                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
-                        <div class="row" >
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/area.png">65
-                          </div>
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/room.png">3
-                          </div>
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
-                          </div>
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
-                          </div>
-                        </div>
-                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class='col-12'>
-                <div class="card mb-3" >
-                  <div class="row no-gutters">
-                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-                    <div class="col-md-4">
-                      <img (click)="verDetalle()" class="card-img-top cursor-pointer" src="assets/img/apt1.jpg" alt="Card image cap">
-                      <div class="icon-over-img ">
-                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
-                      </div>
-                    </div>
-                    <div class="col-md-8 card text-right">
-                      <div class="card-body">
-                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
-                        <div class="row" >
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/area.png">65
-                          </div>
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/room.png">3
-                          </div>
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
-                          </div>
-                          <div class="col">
-                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
-                          </div>
-                        </div>
-                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
+                        <a (click)="startRentingProcess()" class="btn btn-primary">Me interesa</a>
                       </div>
                     </div>
                   </div>

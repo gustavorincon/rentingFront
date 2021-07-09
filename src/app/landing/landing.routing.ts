@@ -10,8 +10,8 @@ export const LANDING_ROUTES: Routes = [
         path: '',
         component: LandingComponent
     },
-    { path: 'busqueda', component: RealStateFilterComponent },
-    { path: 'detalle', component: RealStateDetailComponent },
+    { path: 'busqueda/:city', component: RealStateFilterComponent },
+    { path: 'detalle/:code', component: RealStateDetailComponent },
 ];
 
 @NgModule({

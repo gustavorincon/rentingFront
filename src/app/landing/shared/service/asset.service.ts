@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
+import { IFilterPropertyDto } from '../model/filter-property-dto';
+import { PathConstantes } from 'src/app/shared/constants/constants-path';
+import { IProperty } from '../../../shared/models/property.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssetService {
-  private urlBase = '/qa/clients'
-  constructor(private _http : HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -24,19 +26,24 @@ export class AssetService {
 
  /**
   * filterBy: Dependiendo de la cantidad de filter que lleguen por
-  * query parameters entonces ejecutará el Get 
+  * query parameters entonces ejecutará el Get
   */
-  filterBy(): void {
-    const url = `${ this.urlBase }/${ id }`;
-    return this._http.get<IClient>(url)
+  filterBy(filter: IFilterPropertyDto): Observable<IProperty[]> {
+    const url = `${ PathConstantes.ASSET_API }/${ filter.city }`;
+    const data = {rentingprice: `${filter.rentingPrice}`,
+    locations: '', type: filter.type, area: `${filter.area}`,
+    furnished: `${filter.furnished}`, rooms: `${filter.rooms}`,
+    bathrooms: filter.bathrooms + '', parkings: `${filter.parkings}`};
+    console.log('data url ', data );
+    return this._http.get<IProperty[]>(url, {params: data});
   }
-  /*
-  get(id: string): Observable<IClient>{
-    const url = `${ this.urlBase }/${ id }`;
-    return this._http.get<IClient>(url)
+
+/**
+ * filterByCode
+ */
+  filterByCode(code: string): Observable<IProperty> {
+    return this._http.get<IProperty>(`${ PathConstantes.ASSET_API }/${ code }`);
   }
-  getByEmail(email: string): Observable<Boolean>{
-    const url = `${ this.urlBase }/email/${ email }`;
-    return this._http.get<Boolean>(url)
-  }*/
+
+
 }

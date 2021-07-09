@@ -3,5 +3,21 @@
         "target": "https://23j9ok8564.execute-api.us-east-1.amazonaws.com",
         "logLevel": "debug",
         "changeOrigin": true
+    },
+
+    "/alqui/assets": {
+        "secure": false,
+        "target": "http://localhost:8000",
+        "pathRewrite": {
+            "^/alqui": "http://localhost:8000"
+          },
+        "logLevel": "debug"
+    },
+
+    "/alqui/locations": {
+        "target": "https://www.datos.gov.co/resource/xdk5-pm3f.json",
+        "logLevel": "debug"
     }
+
+    
 }

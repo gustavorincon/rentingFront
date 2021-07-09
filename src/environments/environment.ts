@@ -8,6 +8,7 @@ const awsConfig = {
 
 export const environment = {
   production: false,
+  endpoint: '/alqui',
   domain: 'http://localhost:4200',
   aws: awsConfig
 };
