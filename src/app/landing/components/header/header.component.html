@@ -1,64 +1,52 @@
-<header class="header ">
-    <div>
-        <div class="container">
-            <nav class="navbar navbar-dark bg-dark  navbar-expand-lg  fixed-top ">
-                <div class="container">
-                    <a class="navbar-brand" href="#"><img src="" />LoAlquilo</a>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-                <div class="navg collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Fincas
-              </a>
-                            <div class="dropdown-menu  " aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">El Roblal</a>
-                                <a class="dropdown-item" href="#">Tierra Fría</a>
-                                <a class="dropdown-item" href="#">Tres Esquinas</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">¿Como funciona?</a
-              >
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Blog<span class="sr-only">(current)</span></a
-              >
-            </li>
-          </ul>
+<header class="header">
+   <app-nav-bar></app-nav-bar> 
+   <div class="container main-container">
+      <div class="row content">
 
-          <button
-            (click)="compra()"
-            class="btn btn-outline-success my-2 my-sm-0"
-          >
-            Ingresar
-          </button>
-        </div>
-      </nav>
-    </div>
-  </div>
+         <div class="col-12">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2 class="product-intro">
+              Porque <span>Arrendar</span>
+               <br>
+              Nunca había sido tan fácil
+            </h2>
+          </div>
 
-  <div class="text-header d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2 class="product-intro">
-            Porque <span>Arrendar</span>
-             <br>
-            Nunca había sido tan fácil
-          </h2>
-        </div>
-        <div class="col-sm-8">
-          <input matInput type="text" >
-          <input matInput type="text" >
-          <input matInput type="text">
-        </div>
+          <div class="col-12">
+             <div class="container-fluid text-center">
+               <form>
+                  <div class="container" >
+                     <div class="row ">
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
+                           <input type="input" formControlName="city" id="city" class="input-search" name="city" placeholder="Ciudad" >
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 justify-content"  >
+                           <select formControlName="rsType" class="input-search" id="rsType" placeholder="Tipo de inmueble">
+                              <option>Apartamento</option>
+                              <option>Casa</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
+                           <input type="input" formControlName="fromPrice" id="fromPrice" class="input-search" name="fromPrice" placeholder="Precio desde" > 
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 "  >
+                           <button (click)="buscar()" class="btn-header"><span>Buscar</span></button>
+                        </div>
+                       
+                     </div>
+                     
+                  </div> 
+               </form>
 
+             </div>
+            
+
+          </div>
+      
+            
       </div>
-    </div>
-  </div>
+   </div>
 </header>

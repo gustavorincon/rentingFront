@@ -13,8 +13,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  compra(): void {
-    this.router.navigate(['/tienda/comprar']);
+
+  buscar(): void {
+    this.router.navigate(['renta/inicio/busqueda']);
   }
+
+  
 
 }

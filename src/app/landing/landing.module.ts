@@ -5,6 +5,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LandingComponent } from './landing.component';
 import { LandingRoutingModule } from './landing.routing';
+import { RealStateFilterComponent } from './components/real-state-filter/real-state-filter.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { RealStateDetailComponent } from './components/real-state-detail/real-state-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -13,13 +18,21 @@ import { LandingRoutingModule } from './landing.routing';
     LandingComponent,
     BodyComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    RealStateFilterComponent,
+    NavBarComponent,
+    RealStateDetailComponent,
   ],
   imports: [
     CommonModule,
+    NgbModule,
+    GoogleMapsModule,
     LandingRoutingModule
   ],
-  bootstrap : [LandingComponent]
+  exports: [
+    RealStateDetailComponent
+  ],
+  bootstrap : [LandingComponent, RealStateDetailComponent]
 })
 export class LandingModule {
 

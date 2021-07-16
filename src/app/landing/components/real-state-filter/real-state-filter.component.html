@@ -1,0 +1,265 @@
+<app-nav-bar></app-nav-bar>  
+<div class="container main-container">
+    <div class="row" >      
+      <div class="col-sm-12 col-md-4 search-left" >
+          <div class="row ">
+            <div class="col">
+              <div class="row search-row-lable">
+                <div class="col-12">
+                  <span>Ciudad</span>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-12">
+                  <input type="input"  class="input-search" id="city"  name="city" placeholder="Ciudad" >
+
+                </div>
+              </div>  
+              <div class="row search-row-lable"> 
+                <div class="col-12">
+                  <span>Tipo inmueble</span>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-12">
+                  <select class="input-search" id="exampleFormControlSelect1">
+                    <option>Apartamento</option>
+                    <option>Casa</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row search-row-lable">
+                <div class="col-12">
+                  <span>Área(mt2)</span>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-12">
+                  <input type="input"  class="input-search"  id="city"  name="city" placeholder="Desde" >
+                </div >
+                <div class="col-12">
+                  <input type="input"  class="input-search"  id="city"  name="city" placeholder="Hasta" >
+                </div>
+              </div>
+
+              <div class="row search-row-lable">
+                <div class="col-12">
+                  <span>Valor alquiler</span>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-12">
+                  <input type="text" class="input-search" placeholder="Desde">
+                </div>
+                <div class="col-12">
+                  <input type="text" class="input-search" placeholder="Hasta">
+                </div>
+              </div>
+
+              <div class="row search-row-lable ">
+                <div class="col-3 counter-lable">
+                  <span>Habitaciones</span>
+                </div>
+                <div class="col-3 ">
+                  <button type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-3 counter-lable">
+                  <span> 1</span>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              
+              <div class="row search-row-lable ">
+                <div class="col-3 counter-lable">
+                  <span>Baños</span>
+                </div>
+                <div class="col-3 ">
+                  <button type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-3 counter-lable">
+                  <span> 1</span>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
+                </div>
+              </div>
+
+              <div class="row search-row-lable ">
+                <div class="col-3 counter-lable">
+                  <span>Parqueaderos</span>
+                </div>
+                <div class="col-3 ">
+                  <button type="button" class="btn-rounded2 "><i class="fas fa-minus" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-3 counter-lable">
+                  <span> 1</span>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn-rounded2 "><i class="fas fa-plus" aria-hidden="true"></i></button>
+                </div>
+              </div>
+
+              
+              <div class="row search-row-lable">
+                <div class="col-12">
+                  <span>¿Amoblado?</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                  </div>
+                </div>               
+              </div>
+             
+              <div class="row"  >
+                <div class="col-12">
+                  <button  class="btn-header"><span>Aplicar Filtros</span></button>
+                </div>              
+              </div>
+            </div>           
+          </div>
+      </div>
+       
+      <div class="col-sm-12 col-md-8 scroll" >
+          <span>Se han encontrado las siguientes viviendas en Med e itagui para alquiler:</span>
+          <div class="container">
+            <div class="row">
+              <div class='col-12'>
+                <div class="card mb-3" >
+                  <div class="row no-gutters">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+                    <div class="col-md-4">
+                      <img (click)="verDetalle()" class="card-img-top cursor-pointer" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <div class="icon-over-img ">
+                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                      </div>
+                    </div>
+                    <div class="col-md-8 card text-right">
+                      <div class="card-body">
+                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
+                        <div class="row" >
+                          <div class="col ">
+                            <img class=" icon-filter" src="assets/icons/area.png">65
+                          </div>
+                          <div class="col ">
+                            <img class="icon-filter" src="assets/icons/room.png">3
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
+                          </div>
+                        </div>
+                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='col-12'>
+                <div class="card mb-3" >
+                  <div class="row no-gutters">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+                    <div class="col-md-4">
+                      <img (click)="verDetalle()" class="card-img-top cursor-pointer" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <div class="icon-over-img ">
+                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                      </div>
+                    </div>
+                    <div class="col-md-8 card text-right">
+                      <div class="card-body">
+                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
+                        <div class="row" >
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/area.png">65
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/room.png">3
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
+                          </div>
+                        </div>
+                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='col-12'>
+                <div class="card mb-3" >
+                  <div class="row no-gutters">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+                    <div class="col-md-4">
+                      <img (click)="verDetalle()" class="card-img-top cursor-pointer" src="assets/img/apt1.jpg" alt="Card image cap">
+                      <div class="icon-over-img ">
+                        <a (click)="verDetalle()" ><i class="fas fa-plus"></i>Ver más</a>
+                      </div>
+                    </div>
+                    <div class="col-md-8 card text-right">
+                      <div class="card-body">
+                        <h5 class="card-title">Apartamento en Itagui por $980.000</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Código #wasi-825389</h6>
+                        <div class="row" >
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/area.png">65
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/room.png">3
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/bathroom.png">2
+                          </div>
+                          <div class="col">
+                            <img class=" icon-filter"  src="assets/icons/parking-area.png">1
+                          </div>
+                        </div>
+                        <a (click)="meInteresa()" class="btn btn-primary">Me interesa</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Anterior">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Anterior</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Siguiente">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
