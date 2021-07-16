@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminLayoutModule } from './layouts/admin-layout/admin-layout.module';
 import { RegistroInmuebleComponent } from './containers/registro-inmueble/registro-inmueble.component';
@@ -37,8 +36,7 @@ import { InteresadosComponent } from './containers/interesados/interesados.compo
     StoreDevtoolsModule.instrument(),
     EffectsModule.forFeature(effectsArray),
     HttpClientModule,
-    NgbModule,
-    ToastrModule.forRoot()
+    NgbModule
   ],
   exports : [RegistroInmuebleComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
