@@ -21,6 +21,7 @@ export class DatosInmuebleComponent implements OnInit {
   @Input() estadosInmuebles: OptionInput[];
   @Input() ambientes: OptionInput[];
   @Input() adminOption: OptionInput[];
+  urls = new Array<string>();
 
 
   constructor() { }
@@ -47,6 +48,23 @@ export class DatosInmuebleComponent implements OnInit {
   }
   ValidatePisos(): void{
 
+  }
+
+
+
+  detectFiles(event): void {
+    this.urls = [];
+    const files = event.target.files;
+    if (files) {
+      for (const file of files) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.urls.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+      console.log(this.urls);
+    }
   }
 
 

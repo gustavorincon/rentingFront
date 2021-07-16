@@ -76,7 +76,8 @@
 
     <div class="row">
         <div class="col-12">
-            <lib-input-text-material-desing label="Imagenes*" [type]="'file'" [currentFormControl]="imagenesInmueble"></lib-input-text-material-desing>
+            <input type="file" multiple (change)="detectFiles($event)" />
+            <!--<lib-input-text-material-desing label="Imagenes*" [type]="'file'" [currentFormControl]="imagenesInmueble"></lib-input-text-material-desing>-->
         </div>
     </div>
 </div>
