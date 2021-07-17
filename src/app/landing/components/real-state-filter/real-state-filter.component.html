@@ -5,7 +5,7 @@
       <div class="col-sm-12 col-md-4 search-left" >
           <div class="row ">
             <div class="col">
-              <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+              <form [formGroup]="filterForm">
               <div class="row search-row-lable">
                 <div class="col-12">
                   <span>Ciudad</span>
@@ -28,7 +28,7 @@
               
               <div class="row">
                 <div class="col-12">
-                  <select class="input-search" formControlName="rsType" id="rsType">
+                  <select (change)="applyFilters()" class="input-search" formControlName="rsType" id="rsType">
                     <option value="apartamento">Apartamento</option>
                     <option value="casa">Casa</option>
                   </select>
@@ -42,10 +42,10 @@
               </div>
               <div class="row ">
                 <div class="col-12">
-                  <input type="number" formControlName="fromArea" id="fromArea"  class="input-search" name="fromArea" placeholder="Desde" >
+                  <input (change)="applyFilters()" type="number" formControlName="fromArea" id="fromArea"  class="input-search" name="fromArea" placeholder="Desde" >
                 </div >
                 <div class="col-12">
-                  <input type="number" formControlName="toArea" id="toArea"  class="input-search" name="toArea" placeholder="Hasta" >
+                  <input (change)="applyFilters()" type="number" formControlName="toArea" id="toArea"  class="input-search" name="toArea" placeholder="Hasta" >
                 </div>
               </div>
 
@@ -56,10 +56,10 @@
               </div>
               <div class="row ">
                 <div class="col-12">
-                  <input type="number" formControlName="fromPrice" id="fromPrice"  class="input-search" name="fromPrice" placeholder="Desde" >
+                  <input (change)="applyFilters()" type="number" formControlName="fromPrice" id="fromPrice"  class="input-search" name="fromPrice" placeholder="Desde" >
                 </div>
                 <div class="col-12">
-                  <input type="number" formControlName="toPrice" id="toPrice"  class="input-search" name="toPrice" placeholder="Hasta" >
+                  <input (change)="applyFilters()" type="number" formControlName="toPrice" id="toPrice"  class="input-search" name="toPrice" placeholder="Hasta" >
                 </div>
               </div>
 
@@ -114,17 +114,11 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <select formControlName="furnished" class="input-search" id="rsType">
+                  <select (change)="applyFilters()" formControlName="furnished" class="input-search" id="rsType">
                     <option value="true">Si</option>
                     <option value="false">No</option>
                   </select>
                 </div>               
-              </div>
-             
-              <div class="row"  >
-                <div class="col-12">
-                  <button  class="btn-header" ><span>Aplicar Filtros</span></button>
-                </div>              
               </div>
             </form> 
             </div>           
@@ -163,7 +157,7 @@
                             <img class=" icon-filter"  src="assets/icons/parking-area.png">{{asset.parkings}}
                           </div>
                         </div>
-                        <a (click)="startRentingProcess()" class="btn btn-primary">Me interesa</a>
+                        <a (click)="assetDetail(asset)" class="btn btn-primary">Ver Detalle</a>
                       </div>
                     </div>
                   </div>

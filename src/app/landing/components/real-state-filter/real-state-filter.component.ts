@@ -194,10 +194,10 @@ export class RealStateFilterComponent implements OnInit {
     this.router.navigate([`renta/inicio/detalle/${asset.code}`]);
   }
 
-  startRentingProcess(): void {
-    this.router.navigate(['/renta/usuario/login']);
-  }
+  onChangeType(value: string): void {
+    console.log('tipo = > ', value);
 
+  }
 
   getLocationId($event): void {
     const locationId = (event.target as HTMLInputElement).value;
