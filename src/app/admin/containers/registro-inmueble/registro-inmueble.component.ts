@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormValidators } from 'src/external-apis/form-validators/src/lib/form-validators.service';
 import { InmuebleFacade } from '../../shared/facades/inmueble.facade';
 import { estadosInmueble } from '../../shared/mocks/estadoInmueble';
 import { estadosSioNo } from '../../shared/mocks/siono';
@@ -44,18 +45,19 @@ export class RegistroInmuebleComponent implements OnInit {
     return this.formBuilder.group({
       tipoOferta: [null, Validators.required],
       tipoInmueble: [null, Validators.required],
-      ciudadInmueble: [null, Validators.required],
-      barrioInmueble: [null, Validators.required],
-      direccionInmueble: [null, Validators.required],
-      precioInmueble: [null, Validators.required],
+      ciudadInmueble: [null, [Validators.required, FormValidators.OnlyLettersValidator]],
+      barrioInmueble: [null, [Validators.required, FormValidators.OnlyLettersValidator]],
+      direccionInmueble: [null, [Validators.required, FormValidators.OnlyLettersValidator]],
+      precioInmueble: [null, [Validators.required, FormValidators.OnlyNumbersValidator]],
       estratoInmueble: [null, Validators.required],
-      areaInmueble: [null, Validators.required],
+      areaInmueble: [null, [Validators.required, FormValidators.OnlyNumbersValidator]],
       numeroAmbientesInmueble: [null, Validators.required],
       adminIncluidaInmueble: [null, Validators.required],
       numeroHabitacionesInmueble: [null, Validators.required],
       numeroBanosInmueble: [null, Validators.required],
       pisosInterioresInmueble: [null, Validators.required],
       estadoInmueble: [null, Validators.required],
+      caracteristicas: [null, [Validators.required]],
       imagenesInmueble: [null, Validators.required]
     });
   }

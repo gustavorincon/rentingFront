@@ -13,5 +13,6 @@ export enum FormularioInmueble {
   NUMERO_BANOS = 'numeroBanosInmueble',
   PISOS_INTERIORES = 'pisosInterioresInmueble',
   ESTADO_INMUEBLE = 'estadoInmueble',
+  CARACTERISTICAS = 'caracteristicas',
   IMAGENES_INMUEBLE = 'imagenesInmueble'
 }

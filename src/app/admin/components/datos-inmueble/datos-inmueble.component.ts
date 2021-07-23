@@ -119,6 +119,10 @@ export class DatosInmuebleComponent implements OnInit {
     return this.inmuebleFormGroup.get(FormularioInmueble.ESTADO_INMUEBLE);
   }
 
+  get caracteristicas(): AbstractControl {
+    return this.inmuebleFormGroup.get(FormularioInmueble.CARACTERISTICAS);
+  }
+
   get imagenesInmueble(): AbstractControl {
     return this.inmuebleFormGroup.get(FormularioInmueble.IMAGENES_INMUEBLE);
   }

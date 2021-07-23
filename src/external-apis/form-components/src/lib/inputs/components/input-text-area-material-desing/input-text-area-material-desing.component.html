@@ -1,0 +1,12 @@
+<div class="lib-mb-3" [ngClass]="displayFieldCss()">
+    <div class="lib-d-f lib-f-align-i-center lib-p-relative form-material">
+        <textarea class="lib-py-2 lib-px-3 lib-w-100 form-material__input" autocomplete="off" [appLimitNumberDirective]="limitarCaracteres" [minlength]="minLength" [maxlength]="maxLength" [ngClass]="inputClass" [ngStyle]="styles" [formControl]="currentFormControl"
+            rows="3" [class.form-material__input_is-not-empty]="currentFormControl.value" [id]="id" (blur)="onBlur()"></textarea>
+        <label class="lib-mx-2 lib-px-2 lib-mb-0 form-material__label" [ngStyle]="styleLabel">
+      {{ label }}
+    </label>
+    </div>
+    <div *ngIf="currentFormControl.errors" class="lib-d-none was-valid">
+        {{ showError(currentFormControl.errors) }}
+    </div>
+</div>

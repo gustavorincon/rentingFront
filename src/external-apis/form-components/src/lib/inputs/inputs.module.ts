@@ -19,6 +19,7 @@ import { FormComponentsService } from '../form-components.service';
 import { errorControlService } from './error-control-injector';
 import { RouterModule } from '@angular/router';
 import { LimitNumberDirective } from './directives/limit-number.directive';
+import { InputTextAreaMaterialDesingComponent } from './components/input-text-area-material-desing/input-text-area-material-desing.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LimitNumberDirective } from './directives/limit-number.directive';
     CheckboxComponent,
     TypeCheckComponent,
     LimitNumberDirective,
+    InputTextAreaMaterialDesingComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   exports: [
@@ -41,6 +43,7 @@ import { LimitNumberDirective } from './directives/limit-number.directive';
     CheckboxComponent,
     TypeCheckComponent,
     LimitNumberDirective,
+    InputTextAreaMaterialDesingComponent
   ],
 })
 export class InputsModule {
