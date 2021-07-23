@@ -41,11 +41,11 @@ export class RealStateFilterComponent implements OnInit {
         city: [filterDto.city, Validators.required],
         rsType: [filterDto.type],
         fromPrice: [filterDto.rentingPrice, [Validators.minLength(6), Validators.maxLength(7)]],
-        toPrice: ['', [Validators.minLength(6), Validators.maxLength(7),
+        toPrice: [ConstantValues.MAX_RENTING_PRICE, [Validators.minLength(6), Validators.maxLength(7),
           Validators.max(ConstantValues.MAX_RENTING_PRICE), Validators.min(ConstantValues.MIN_RENTING_PRICE)]],
         fromArea: [filterDto.area, [Validators.minLength(6), Validators.maxLength(7),
           Validators.max(ConstantValues.MAX_AREA), Validators.min(ConstantValues.MIN_AREA)]],
-        toArea: ['', [Validators.minLength(6), Validators.maxLength(7)]],
+        toArea: [ConstantValues.MAX_AREA, [Validators.minLength(6), Validators.maxLength(7)]],
         furnished: [filterDto.furnished, Validators.required],
       });
       this.getByFilters();

@@ -14,7 +14,7 @@
               
               <div class="row">
                 <div class="col-12">
-                <input type="text" formControlName="city" class="input-search" (keyup)="getLocationId($event)" id="locationId" list="locationsIds" placeholder="Ciudad"  />
+                <input (change)="applyFilters()"  type="text" formControlName="city" class="input-search" (keyup)="getLocationId($event)" id="locationId" list="locationsIds" placeholder="Ciudad"  />
                   <datalist id="locationsIds">
                     <option *ngFor="let location of locations">{{location.municipio}}-{{location.departamento}}</option>
                   </datalist>
