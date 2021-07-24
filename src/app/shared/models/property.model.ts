@@ -13,6 +13,11 @@ export interface IProperty{
     parkings: number;
     type: string;
     furnished: boolean;
+    elevator: boolean;
+    visitorParking: boolean;
+    floorLevel: number;
+    communalArea: boolean;
+    gym: boolean;
     images: IPropertyImmage[];
     createdDate: Date;
 }
@@ -40,6 +45,11 @@ export class Property implements IProperty{
         public parkings: number,
         public type: string,
         public furnished: boolean,
+        public elevator: boolean,
+        public visitorParking: boolean,
+        public floorLevel: number,
+        public communalArea: boolean,
+        public gym: boolean,
         public images: IPropertyImmage[],
         public createdDate: Date,
     ){}

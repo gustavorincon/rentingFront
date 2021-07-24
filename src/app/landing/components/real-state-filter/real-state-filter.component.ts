@@ -109,14 +109,12 @@ export class RealStateFilterComponent implements OnInit {
     }
 
     private getFilterDto(): IFilterPropertyDto{
-      const priceRange = this.filterForm.get(['fromPrice']).value;
-
       return new FilterPropertyDto(
         '',
         '',
         'colombia',
         '',
-        this.filterForm.get(['city']).value,
+        this.filterForm.get(['city']).value.toLowerCase().split('-')[0].normalize('NFD').replace(/[\u0300-\u036f]/g, ''),
         '',
         '',
         this.buildRangeFilter(this.filterForm.get(['fromPrice']).value, this.filterForm.get(['toPrice']).value),
