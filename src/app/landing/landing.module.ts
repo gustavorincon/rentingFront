@@ -11,6 +11,7 @@ import { RealStateDetailComponent } from './components/real-state-detail/real-st
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { RentingSharedModule } from '../shared/shared.module';
+import { SiNoPipe } from '../shared/pipes/sino.pipe';
 
 
 
@@ -23,6 +24,7 @@ import { RentingSharedModule } from '../shared/shared.module';
     RealStateFilterComponent,
     NavBarComponent,
     RealStateDetailComponent,
+    SiNoPipe,
   ],
   imports: [
     CommonModule,

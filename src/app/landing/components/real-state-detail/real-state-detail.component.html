@@ -57,9 +57,9 @@
                                 <li class="list-group-item">Área: {{assetRecord.area}} mt2</li>
                                 <li class="list-group-item"> Habitaciones: {{assetRecord.rooms}}</li>
                                 <li class="list-group-item">Baños: {{assetRecord.bathrooms}}</li>
-                                <li class="list-group-item">Piso: pending</li>
-                                <li class="list-group-item">Gimnasio: pending</li>
-                                <li class="list-group-item">Salon Comunal: pending</li>
+                                <li class="list-group-item">Piso: {{assetRecord.floorLevel}}</li>
+                                <li class="list-group-item">Gimnasio: {{assetRecord.gym|siNoPipe}}</li>
+                                <li class="list-group-item">Salon Comunal: {{assetRecord.communalArea|siNoPipe}}</li>
                               </ul>
                               <div class="card-body">
                                 <a (click)="contactar()" class="btn btn-primary">Me interesa</a>
@@ -68,10 +68,11 @@
                             </div>
                             <div class="col-6">
                               <ul class="list-group list-group-flush">
-                                <li class="list-group-item">  Ascensor: pending</li>
-                                <li class="list-group-item"> Parqueadero visitas: pending</li>
+                                <li class="list-group-item">  Ascensor: {{assetRecord.elevator|siNoPipe}}</li>
+                                <li class="list-group-item"> Parqueadero visitas: {{assetRecord.visitorParking|siNoPipe}}</li>
                                 <li class="list-group-item">Parqueadero privado: {{assetRecord.parkings}}</li>
                                 <li class="list-group-item">Parqueadero común: {{assetRecord.parkings}}</li>
+                                <li class="list-group-item">Amoblado: {{assetRecord.furnished|siNoPipe}}</li>
                               </ul>
                             </div>
                           </div>

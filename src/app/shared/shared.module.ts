@@ -10,4 +10,4 @@ import { RentingSharedLibsModule } from './shared-libs.module';
         RentingSharedLibsModule
     ]
   })
-  export class RentingSharedModule {}
+  export class RentingSharedModule { }
