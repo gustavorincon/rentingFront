@@ -1,11 +1,12 @@
 import { Inmueble } from '../../shared/model/inmueble.model';
+import { Interesado } from '../../shared/model/interesado.model';
 
 
 
 export interface InmuebleState {
     nuevoInmueble: Inmueble;
-    listaInmuebles: Array<Inmueble>;
-    listaInteresadosInmueble: Array<any>;
+    listaInmuebles: Inmueble [];
+    listaInteresadosInmueble: Interesado[];
 
 }
 

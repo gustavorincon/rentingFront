@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { registrarInmuebleSuccess } from '../actions/inmuble.actions';
+import { getlistaInmueblesSuccess, getlistaInteresadosSuccess, registrarInmuebleSuccess } from '../actions/inmuble.actions';
 import { initialInmuebleState, InmuebleState } from '../state/inmueble.state';
 import produce from 'immer';
 
@@ -15,7 +15,25 @@ const reducer = createReducer(
           nuevoInmueble: inmueble,
         };
       }
-    )
+    ),
+    on(
+      getlistaInmueblesSuccess,
+    (state, { listaInmueble }) => {
+      return {
+        ...state,
+        listaInmuebles: listaInmueble,
+      };
+    }
+  ),
+  on(
+    getlistaInteresadosSuccess,
+  (state, { listaInteresados }) => {
+    return {
+      ...state,
+      listaInteresadosInmueble: listaInteresados,
+    };
+  }
+)
   );
 
 export function inmuebleReducers(
