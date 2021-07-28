@@ -27,31 +27,7 @@ export class DatosInmuebleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {}
-
-  ValidateTipoOfertas(): void{
-    console.log('tipoOfertasss');
-  }
-
-  ValidateTipoInmueble(): void{
-    console.log('tipoInmueble');
-  }
-
-  ValidateEstrato(): void{
-
-  }
-
-  ValidateHabitaciones(): void{
-
-  }
-  ValidateBanos(): void{
-
-  }
-  ValidatePisos(): void{
-
-  }
-
-
-
+   
   detectFiles(event): void {
     this.urls = [];
     const files = event.target.files;

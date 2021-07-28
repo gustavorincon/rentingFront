@@ -11,9 +11,9 @@ $error-color: red;
         &:focus,
         &.form-material__input_is-not-empty {
             &~.form-material__label {
-                -webkit-transform: translateY(-22px);
-                -ms-transform: translateY(-22px);
-                transform: translateY(-22px);
+                -webkit-transform: translateY(-50px);
+                -ms-transform: translateY(-50px);
+                transform: translateY(-50px);
                 font-size: 0.8rem;
             }
         }

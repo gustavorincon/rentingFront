@@ -47,7 +47,7 @@ export class RegistroInmuebleComponent implements OnInit {
       tipoInmueble: [null, Validators.required],
       ciudadInmueble: [null, [Validators.required, FormValidators.OnlyLettersValidator]],
       barrioInmueble: [null, [Validators.required, FormValidators.OnlyLettersValidator]],
-      direccionInmueble: [null, [Validators.required, FormValidators.OnlyLettersValidator]],
+      direccionInmueble: [null, [Validators.required]],
       precioInmueble: [null, [Validators.required, FormValidators.OnlyNumbersValidator]],
       estratoInmueble: [null, Validators.required],
       areaInmueble: [null, [Validators.required, FormValidators.OnlyNumbersValidator]],
@@ -82,6 +82,7 @@ export class RegistroInmuebleComponent implements OnInit {
 
   submit(): void{
     this.formSubmitted = true;
+    console.log(this.form.value.inmueble);
     if (this.form.valid) {
       this.inmuebleFacade.dispatch(registrarInmueble({inmueble: this.form.value.inmueble }));
     }
