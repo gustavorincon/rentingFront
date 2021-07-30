@@ -202,13 +202,10 @@ body {
 }
 
 .counter-lable {
-    font-family: Silka;
     font-style: normal;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 50px;
-    width: 80px;
-    display: inline-block;
-    text-align: justify;
+    text-align: center;
 }
 
 .howwork ul {
